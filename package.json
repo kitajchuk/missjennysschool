@@ -1,0 +1,38 @@
+{
+  "name": "missjennysschool",
+  "version": "1.0.0",
+  "description": "Miss Jenny’s School, LLC",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+    "start": "npm run dev",
+    "predev": "rm -rf ./_site",
+    "dev": "npx @11ty/eleventy --serve",
+    "prebuild": "rm -rf ./_site",
+    "build": "npx @11ty/eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kitajchuk/missjennysschool.git"
+  },
+  "contributors": [
+    {
+      "name": "Brandon Lee Kitajchuk",
+      "email": "bk@kitajchuk.com",
+      "url": "https://www.kitajchuk.com"
+    }
+  ],
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.0",
+    "prettier-plugin-toml": "^2.0.1"
+  },
+  "lint-staged": {
+    "*.{ts,js,css,toml,md,json,yml,html,liquid}": "prettier --write"
+  }
+}

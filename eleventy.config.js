@@ -1,6 +1,14 @@
+import tailwindcss from "@tailwindcss/vite";
+import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
+
 export default function (eleventyConfig) {
-  // TODO: Add your configuration here
-  //       Need to decide on a template language and setup layouts
+  eleventyConfig.addPlugin(EleventyVitePlugin, {
+    viteOptions: {
+      plugins: [tailwindcss()],
+    },
+  });
+
+  eleventyConfig.addPassthroughCopy({ "src/css": "css" });
 
   return {
     dir: {

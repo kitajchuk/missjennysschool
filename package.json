@@ -30,6 +30,7 @@
     "@11ty/eleventy-plugin-vite": "^6.0.0-alpha.4",
     "@prismicio/client": "^7.16.0",
     "@tailwindcss/vite": "^4.0.6",
+    "dayjs": "^1.11.13",
     "dotenv": "^16.4.7",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",

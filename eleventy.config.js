@@ -1,4 +1,5 @@
 import "dotenv/config";
+import dayjs from "dayjs";
 import tailwindcss from "@tailwindcss/vite";
 import * as prismic from "@prismicio/client";
 import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
@@ -24,10 +25,9 @@ export default function (eleventyConfig) {
     return prismic.asLink(...args);
   });
 
-  // TODO: Make this nicer with `dayjs`
-  // @see: https://github.com/prismicio-community/eleventy-plugin-prismic/blob/c387f76b2217e2695c73ea05f791499f2d225215/src/shortcodes.ts#L82
-  eleventyConfig.addFilter("asDate", (...args) => {
-    return prismic.asDate(...args);
+  eleventyConfig.addFilter("asDate", (dateField, format = "MMMM D, YYYY") => {
+    const date = prismic.asDate(dateField);
+    return date ? dayjs(date).format(format) : "invalid date";
   });
 
   eleventyConfig.addFilter("asImageSrc", (...args) => {

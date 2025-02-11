@@ -1,0 +1,11 @@
+{% assign link_url = link %}
+{% assign link_text = text %}
+{% assign link_target = target | default: "_blank" %}
+
+<a
+  href="{{ link_url}}"
+  class="text-blue-500 hover:text-blue-600"
+  target="{{ link_target }}"
+>
+  {{ link_text }}
+</a>

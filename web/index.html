@@ -7,6 +7,7 @@ layout: layout.liquid
   <p>{{ site.description }}</p>
 
   <!-- URL -->
+  {% render "templates/link", link: site.url.url, text: "This is a link" %}
   <pre
     class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
   >
@@ -24,6 +25,9 @@ layout: layout.liquid
   </pre>
 
   <!-- Embed -->
+  <div class="flex justify-center">
+    {% render "templates/embed", embed: site.embed %}
+  </div>
   <pre
     class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
   >

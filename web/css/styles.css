@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
-@theme {
-  /* TODO: Bogo theme */
+/* tailwindcss layer order */
+/* @layer theme, base, components, utilities; */
+
+@layer components {
+  .embed {
+    iframe {
+      @apply absolute inset-0 w-full h-full;
+    }
+  }
 }

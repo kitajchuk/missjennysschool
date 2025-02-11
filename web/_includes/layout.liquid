@@ -1,11 +1,14 @@
 <!doctype html>
 <html lang="en">
   <head>
+    {% render "metadata" %}
     <title>{% if title %}{{ title }} | {% endif %}Miss Jenny's School</title>
     <link href="/css/styles.css" rel="stylesheet" />
   </head>
-  <body class="{{ class }}">
-    <nav></nav>
+  <body>
+    <header>
+      <nav></nav>
+    </header>
     <main>
       {{ content }}
     </main>

@@ -1,10 +1,17 @@
-import fetch from "node-fetch";
+import Fetch from "@11ty/eleventy-fetch";
 import * as prismic from "@prismicio/client";
 
-// TODO: Try to make @11ty/eleventy-fetch work with Prismic
+async function fetcher(url, options) {
+  const response = await Fetch(url, {
+    duration: "1d",
+    fetchOptions: options,
+  });
+
+  return new Response(response);
+}
 
 const client = prismic.createClient(process.env.PRISMIC_API_ACCESS, {
-  fetch,
+  fetch: fetcher,
   accessToken: process.env.PRISMIC_API_TOKEN,
 });
 

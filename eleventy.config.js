@@ -13,6 +13,11 @@ export default function (eleventyConfig) {
     },
   });
 
+  eleventyConfig.setLiquidOptions({
+    // https://www.11ty.dev/docs/languages/liquid/#java-script-truthiness-in-liquid
+    jsTruthy: true,
+  });
+
   eleventyConfig.addFilter("asHTML", (...args) => {
     return prismic.asHTML(...args);
   });
@@ -41,10 +46,6 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("asImagePixelDensitySrcSet", (...args) => {
     return prismic.asImagePixelDensitySrcSet(...args);
   });
-
-  // TODO: Add custom `image` and `embed` filters
-  // @see: https://github.com/prismicio-community/eleventy-plugin-prismic/blob/master/src/shortcodes.ts
-  // Possibly these would be better as liquid includes -- e.g. {% render "image", data: site.image %}
 
   return {
     dir: {

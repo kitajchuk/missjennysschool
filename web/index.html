@@ -2,6 +2,31 @@
 layout: layout.liquid
 ---
 
-<h1 class="text-3xl font-bold text-foo">{{ site.title }}</h1>
+<section class="text-center p-16 flex flex-col gap-16 justify-center">
+  <h1 class="text-3xl font-bold">{{ site.title }}</h1>
+  <p>{{ site.description }}</p>
 
-{{ site.description_2 | asHTML }}
+  <!-- URL -->
+  <pre
+    class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
+  >
+{{ site.url | json: 2 | escape }}
+  </pre>
+
+  <!-- Image -->
+  <div class="flex justify-center">
+    {% render "templates/image", image: site.image %}
+  </div>
+  <pre
+    class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
+  >
+{{ site.image | json: 2 | escape }}
+  </pre>
+
+  <!-- Embed -->
+  <pre
+    class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
+  >
+{{ site.embed | json: 2 | escape }}
+  </pre>
+</section>

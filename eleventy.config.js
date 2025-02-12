@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 import * as prismic from "@prismicio/client";
 import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
 
+import serializer from "./prismicio.serializer.js";
+
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "web/css": "css" });
 
@@ -18,8 +20,10 @@ export default function (eleventyConfig) {
     jsTruthy: true,
   });
 
-  eleventyConfig.addFilter("asHTML", (...args) => {
-    return prismic.asHTML(...args);
+  eleventyConfig.addFilter("asHTML", (richTextField) => {
+    return prismic.asHTML(richTextField, {
+      serializer,
+    });
   });
 
   eleventyConfig.addFilter("asText", (...args) => {
@@ -28,6 +32,10 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("asLink", (...args) => {
     return prismic.asLink(...args);
+  });
+
+  eleventyConfig.addFilter("asLinkAttrs", (...args) => {
+    return prismic.asLinkAttrs(...args);
   });
 
   eleventyConfig.addFilter("asDate", (dateField, format = "MMMM D, YYYY") => {

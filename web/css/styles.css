@@ -9,4 +9,66 @@
       @apply absolute inset-0 w-full h-full;
     }
   }
+
+  .cms {
+    h1 {
+      @apply text-4xl font-bold;
+    }
+
+    h2 {
+      @apply text-2xl font-bold;
+    }
+
+    h3 {
+      @apply text-xl font-bold;
+    }
+
+    h4 {
+      @apply text-lg font-bold;
+    }
+
+    h5 {
+      @apply text-base font-bold;
+    }
+
+    h6 {
+      @apply text-sm font-bold;
+    }
+
+    p {
+      @apply text-base;
+    }
+
+    ul {
+      @apply list-disc ml-4;
+    }
+
+    ol {
+      @apply list-decimal ml-4;
+    }
+
+    em {
+      @apply italic;
+    }
+
+    a {
+      @apply text-blue-500 hover:text-blue-600;
+    }
+
+    .block-img {
+      @apply flex justify-center;
+
+      img {
+        @apply block max-w-full h-auto align-middle;
+      }
+    }
+
+    [data-oembed-type="video"] {
+      @apply w-full relative aspect-video;
+
+      iframe {
+        @apply absolute inset-0 w-full h-full;
+      }
+    }
+  }
 }

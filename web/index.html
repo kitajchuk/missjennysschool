@@ -2,35 +2,61 @@
 layout: layout.liquid
 ---
 
-<section class="text-center p-16 flex flex-col gap-16 justify-center">
+<section class="text-center p-12 flex flex-col gap-16 justify-center">
   <h1 class="text-3xl font-bold">{{ site.title }}</h1>
   <p>{{ site.description }}</p>
 
   <!-- URL -->
-  {% render "templates/link", link: site.url.url, text: "This is a link" %}
-  <pre
-    class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
-  >
+  <details class="cursor-pointer">
+    <summary>Toggle Link JSON</summary>
+    <pre
+      class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
+    >
 {{ site.url | json: 2 | escape }}
-  </pre>
+    </pre>
+  </details>
+  {% render "templates/link", link: site.url.url, text: "This is a link" %}
 
   <!-- Image -->
+  <details class="cursor-pointer">
+    <summary>Toggle Image JSON</summary>
+    <pre
+      class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
+    >
+{{ site.image | json: 2 | escape }}
+    </pre>
+  </details>
   <div class="flex justify-center">
     {% render "templates/image", image: site.image %}
   </div>
-  <pre
-    class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
-  >
-{{ site.image | json: 2 | escape }}
-  </pre>
 
   <!-- Embed -->
-  <div class="flex justify-center">
-    {% render "templates/embed", embed: site.embed %}
-  </div>
-  <pre
-    class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
-  >
+  <details class="cursor-pointer">
+    <summary>Toggle Embed JSON</summary>
+    <pre
+      class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
+    >
 {{ site.embed | json: 2 | escape }}
-  </pre>
+    </pre>
+  </details>
+  <div class="flex justify-center">
+    <div class="w-full max-w-xl">
+      {% render "templates/embed", embed: site.embed %}
+    </div>
+  </div>
+
+  <!-- Rich Text -->
+  <details class="cursor-pointer">
+    <summary>Toggle Rich TextJSON</summary>
+    <pre
+      class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
+    >
+{{ site.body | json: 2 | escape }}
+    </pre>
+  </details>
+  <div class="flex justify-center">
+    <div class="w-full max-w-xl">
+      {% render "templates/rich_text", body: site.body %}
+    </div>
+  </div>
 </section>

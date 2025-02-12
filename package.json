@@ -10,7 +10,7 @@
     "dev": "npx @11ty/eleventy --serve",
     "prebuild": "rm -rf ./_site",
     "build": "npx @11ty/eleventy",
-    "cache:clean": "rm -rf ./.cache"
+    "nocache": "rm -rf ./.cache"
   },
   "repository": {
     "type": "git",

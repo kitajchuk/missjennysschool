@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
-    {% render "metadata" %}
-    <title>{% if title %}{{ title }} | {% endif %}Miss Jenny's School</title>
+    {% render "metadata", site: site %}
+    <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
     <link href="/css/styles.css" rel="stylesheet" />
   </head>
   <body>

@@ -8,6 +8,7 @@ import serializer from "./prismicio.serializer.js";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "web/css": "css" });
+  eleventyConfig.addPassthroughCopy({ "web/public/*": "." });
 
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     viteOptions: {

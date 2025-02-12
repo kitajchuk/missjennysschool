@@ -2,9 +2,14 @@
 layout: layout.liquid
 ---
 
-<section class="text-center p-12 flex flex-col gap-16 justify-center">
+<section
+  class="text-center px-4 sm:px-8 md:px-12 py-8 sm:py-12 flex flex-col gap-16 justify-center"
+>
   <h1 class="text-3xl font-bold">{{ site.title }}</h1>
-  <p>{{ site.description }}</p>
+
+  <div class="flex justify-center">
+    <p class="w-full max-w-xl">{{ site.description }}</p>
+  </div>
 
   <!-- URL -->
   <details class="cursor-pointer">
@@ -47,7 +52,7 @@ layout: layout.liquid
 
   <!-- Rich Text -->
   <details class="cursor-pointer">
-    <summary>Toggle Rich TextJSON</summary>
+    <summary>Toggle Rich Text JSON</summary>
     <pre
       class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
     >

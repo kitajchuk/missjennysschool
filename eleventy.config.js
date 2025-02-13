@@ -1,12 +1,8 @@
-// Load early to ensure env vars are available
 import "dotenv/config";
-
-// Load early to ensure filters are available for prismic serializer
-import "./lib/liquid.engine.js";
-
 import tailwindcss from "@tailwindcss/vite";
-import * as filters from "./lib/liquid.filters.js";
+import * as filters from "./lib/filters/index.js";
 import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
+
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "web/css": "css" });
@@ -23,14 +19,9 @@ export default function (eleventyConfig) {
     jsTruthy: true,
   });
 
-  eleventyConfig.addFilter("asHTML", filters.asHTML);
-  eleventyConfig.addFilter("asText", filters.asText);
-  eleventyConfig.addFilter("asLink", filters.asLink);
-  eleventyConfig.addFilter("asDate", filters.asDate);
-  eleventyConfig.addFilter("asImageSrc", filters.asImageSrc);
-  eleventyConfig.addFilter("asLinkAttrs", filters.asLinkAttrs);
-  eleventyConfig.addFilter("asImageWidthSrcSet", filters.asImageWidthSrcSet);
-  eleventyConfig.addFilter("asImagePixelDensitySrcSet", filters.asImagePixelDensitySrcSet);
+  Object.entries(filters).forEach(([name, filter]) => {
+    eleventyConfig.addFilter(name, filter);
+  });
 
   return {
     dir: {

@@ -1,10 +1,12 @@
+// Load early to ensure env vars are available
 import "dotenv/config";
-import dayjs from "dayjs";
-import tailwindcss from "@tailwindcss/vite";
-import * as prismic from "@prismicio/client";
-import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
 
-import serializer from "./prismicio.serializer.js";
+// Load early to ensure filters are available for prismic serializer
+import "./lib/liquid.engine.js";
+
+import tailwindcss from "@tailwindcss/vite";
+import * as filters from "./lib/liquid.filters.js";
+import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "web/css": "css" });
@@ -21,40 +23,14 @@ export default function (eleventyConfig) {
     jsTruthy: true,
   });
 
-  eleventyConfig.addFilter("asHTML", (richTextField) => {
-    return prismic.asHTML(richTextField, {
-      serializer,
-    });
-  });
-
-  eleventyConfig.addFilter("asText", (...args) => {
-    return prismic.asText(...args);
-  });
-
-  eleventyConfig.addFilter("asLink", (...args) => {
-    return prismic.asLink(...args);
-  });
-
-  eleventyConfig.addFilter("asLinkAttrs", (...args) => {
-    return prismic.asLinkAttrs(...args);
-  });
-
-  eleventyConfig.addFilter("asDate", (dateField, format = "MMMM D, YYYY") => {
-    const date = prismic.asDate(dateField);
-    return date ? dayjs(date).format(format) : "invalid date";
-  });
-
-  eleventyConfig.addFilter("asImageSrc", (...args) => {
-    return prismic.asImageSrc(...args);
-  });
-
-  eleventyConfig.addFilter("asImageWidthSrcSet", (...args) => {
-    return prismic.asImageWidthSrcSet(...args);
-  });
-
-  eleventyConfig.addFilter("asImagePixelDensitySrcSet", (...args) => {
-    return prismic.asImagePixelDensitySrcSet(...args);
-  });
+  eleventyConfig.addFilter("asHTML", filters.asHTML);
+  eleventyConfig.addFilter("asText", filters.asText);
+  eleventyConfig.addFilter("asLink", filters.asLink);
+  eleventyConfig.addFilter("asDate", filters.asDate);
+  eleventyConfig.addFilter("asImageSrc", filters.asImageSrc);
+  eleventyConfig.addFilter("asLinkAttrs", filters.asLinkAttrs);
+  eleventyConfig.addFilter("asImageWidthSrcSet", filters.asImageWidthSrcSet);
+  eleventyConfig.addFilter("asImagePixelDensitySrcSet", filters.asImagePixelDensitySrcSet);
 
   return {
     dir: {

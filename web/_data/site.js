@@ -1,4 +1,4 @@
-import client from "../../prismicio.client.js";
+import client from "../../lib/prismicio.client.js";
 
 export default async function () {
   const response = await client.getSingle("site");

@@ -54,21 +54,5 @@
     a {
       @apply text-blue-500 hover:text-blue-600;
     }
-
-    .block-img {
-      @apply flex justify-center;
-
-      img {
-        @apply block max-w-full h-auto align-middle;
-      }
-    }
-
-    [data-oembed-type="video"] {
-      @apply w-full relative aspect-video;
-
-      iframe {
-        @apply absolute inset-0 w-full h-full;
-      }
-    }
   }
 }

@@ -1,12 +1,13 @@
 {% assign link_url = link %}
 {% assign link_text = text %}
 {% assign link_target = target | default: "_blank" %}
+{% assign link_rel = rel | default: "noopener noreferrer" %}
 
 <a
   href="{{ link_url}}"
   class="text-blue-500 hover:text-blue-600"
   target="{{ link_target }}"
-  rel="noopener noreferrer"
+  rel="{{ link_rel }}"
 >
   {{ link_text }}
 </a>

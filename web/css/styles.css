@@ -50,9 +50,5 @@
     em {
       @apply italic;
     }
-
-    a {
-      @apply text-blue-500 hover:text-blue-600;
-    }
   }
 }

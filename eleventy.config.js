@@ -4,9 +4,9 @@ import * as filters from "./lib/filters/index.js";
 import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
 
 export default function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ "web/js": "js" });
-  eleventyConfig.addPassthroughCopy({ "web/css": "css" });
-  eleventyConfig.addPassthroughCopy({ "web/public/*": "." });
+  eleventyConfig.addPassthroughCopy({ public: "." });
+  eleventyConfig.addPassthroughCopy({ "src/css": "css" });
+  eleventyConfig.addPassthroughCopy({ "src/js": "js" });
 
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     viteOptions: {
@@ -25,7 +25,7 @@ export default function (eleventyConfig) {
 
   return {
     dir: {
-      input: "web",
+      input: "src",
     },
   };
 }

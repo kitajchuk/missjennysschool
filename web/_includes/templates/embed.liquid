@@ -1,5 +1,19 @@
-{% assign embed_html = embed.html %}
+{% assign provider = provider %}
+{% assign video_id = video_id %}
+{% assign title = title %}
+{% assign thumbnail = thumbnail %}
 
 <div class="embed w-full relative aspect-video">
-  {{ embed_html }}
+  {% case provider %}
+    {% when "Vimeo" %}
+      <lite-vimeo videoid="{{ video_id }}">
+        <a href="https://vimeo.com/{{ video_id }}" class="ltv-playbtn" title="Play Video"></a>
+      </lite-vimeo>
+    {% when "YouTube" %}
+      <lite-youtube videoid="{{ video_id }}" playlabel="{{ title }}">
+        <a href="https://youtube.com/watch?v={{ video_id }}" class="lyt-playbtn" title="Play Video"></a>
+      </lite-youtube>
+    {% else %}
+      [oembed not supported]
+  {% endcase %}
 </div>

@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://missjennysschool.netlify.app">
-    <img src="./web/public/icon192.png" height="128">
+    <img src="./public/icon192.png" height="128">
     <h1 align="center">Miss Jenny’s School, LLC</h1>
   </a>
 </p>

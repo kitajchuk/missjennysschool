@@ -3,7 +3,7 @@
   <head>
     {% render "metadata", site: site %}
     <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
-    <link href="/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
     <header>
@@ -13,5 +13,6 @@
       {{ content }}
     </main>
     <footer></footer>
+    <script type="module" src="/js/index.js"></script>
   </body>
 </html>

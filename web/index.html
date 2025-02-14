@@ -17,10 +17,22 @@ layout: layout.liquid
     <pre
       class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
     >
-{{ site.url | json: 2 | escape }}
+{{ site.facebook_page | json: 2 | escape }}
+{{ site.eventbrite_page | json: 2 | escape }}
     </pre>
   </details>
-  {% render "templates/link", link: site.url.url, text: "This is a link" %}
+  {%
+    render "templates/link",
+    link: site.facebook_page.url,
+    text: "Facebook Page",
+    target: site.facebook_page.target
+  %}
+  {%
+    render "templates/link",
+    link: site.eventbrite_page.url,
+    text: "Eventbrite Page",
+    target: site.eventbrite_page.target
+  %}
 
   <!-- Image -->
   <details class="cursor-pointer">
@@ -35,18 +47,37 @@ layout: layout.liquid
     {% render "templates/image", image: site.image %}
   </div>
 
-  <!-- Embed -->
+  <!-- Embeds -->
   <details class="cursor-pointer">
     <summary>Toggle Embed JSON</summary>
     <pre
       class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded"
     >
-{{ site.embed | json: 2 | escape }}
+{{ site.vimeo_embed | json: 2 | escape }}
+{{ site.youtube_embed | json: 2 | escape }}
     </pre>
   </details>
   <div class="flex justify-center">
     <div class="w-full max-w-xl">
-      {% render "templates/embed", embed: site.embed %}
+      {%
+        render "templates/embed",
+        provider: site.vimeo_embed.provider_name,
+        video_id: site.vimeo_embed.video_id,
+        title: site.vimeo_embed.title,
+        thumbnail: site.vimeo_embed.thumbnail_url
+      %}
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <div class="w-full max-w-xl">
+      {% assign youtube_id = site.youtube_embed.embed_url | replace: "https://www.youtube.com/watch?v=", "" %}
+      {%
+        render "templates/embed",
+        provider: site.youtube_embed.provider_name,
+        video_id: youtube_id,
+        title: site.youtube_embed.title,
+        thumbnail: site.youtube_embed.thumbnail_url
+      %}
     </div>
   </div>
 

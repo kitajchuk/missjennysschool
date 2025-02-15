@@ -1,0 +1,56 @@
+---
+layout: layout.liquid
+---
+
+<section class="text-center px-4 sm:px-8 md:px-12 py-8 sm:py-12 flex flex-col gap-16 justify-center">
+  <h1 class="text-3xl font-bold">Testing</h1>
+
+  <div class="flex justify-center">
+    <p class="w-full max-w-xl">Testing embeds and rich text content from Prismic.</p>
+  </div>
+
+  <!-- Embeds -->
+  <details class="cursor-pointer">
+    <summary>Toggle Embed JSON</summary>
+    <pre class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded">
+{{ testing.vimeo_embed | json: 2 | escape }}
+{{ testing.youtube_embed | json: 2 | escape }}
+    </pre>
+  </details>
+  <div class="flex justify-center">
+    <div class="w-full max-w-xl">
+      {%
+        render "templates/embed",
+        provider: testing.vimeo_embed.provider_name,
+        video_id: testing.vimeo_embed.video_id,
+        title: testing.vimeo_embed.title,
+        thumbnail: testing.vimeo_embed.thumbnail_url
+      %}
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <div class="w-full max-w-xl">
+      {% assign youtube_id = testing.youtube_embed.embed_url | replace: "https://www.youtube.com/watch?v=", "" %}
+      {%
+        render "templates/embed",
+        provider: testing.youtube_embed.provider_name,
+        video_id: youtube_id,
+        title: testing.youtube_embed.title,
+        thumbnail: testing.youtube_embed.thumbnail_url
+      %}
+    </div>
+  </div>
+
+  <!-- Rich Text -->
+  <details class="cursor-pointer">
+    <summary>Toggle Rich Text JSON</summary>
+    <pre class="block whitespace-pre overflow-x-scroll text-left bg-neutral-900 text-white p-8 rounded">
+{{ testing.body | json: 2 | escape }}
+    </pre>
+  </details>
+  <div class="flex justify-center">
+    <div class="w-full max-w-xl">
+      {% render "templates/rich_text", body: testing.body %}
+    </div>
+  </div>
+</section>

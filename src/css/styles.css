@@ -4,6 +4,15 @@
 /* @layer theme, base, components, utilities; */
 
 @layer components {
+  .home {
+    --bg-y: 0;
+    background-image: url("/assets/dots.png");
+    background-size: 500px 500px;
+    background-position: 0 var(--bg-y);
+    background-repeat: repeat;
+    background-attachment: fixed;
+  }
+
   .embed {
     iframe {
       @apply absolute inset-0 w-full h-full;

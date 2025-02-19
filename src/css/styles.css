@@ -3,12 +3,35 @@
 /* tailwindcss layer order */
 /* @layer theme, base, components, utilities; */
 
+@theme {
+  --color-cement: #8a6c61;
+  --color-indian-khaki: #bda891;
+  --color-tea: #c1bcad;
+  --color-heathered-gray: #b6ab90;
+  --color-lemon-grass: #96958b;
+  --color-heathered-gray-2: #bab792;
+  --color-storm-dust: #686961;
+  --color-pearl-bush: #e5ddd5;
+  --color-vanilla: #d3c5b0;
+  --color-parchment: #efe7cf;
+  --color-bone: #eadfcf;
+  --color-nomad: #b5aea2;
+  --color-donkey-brown: #a2937e;
+  --color-delta: #a0a197;
+  --color-americano: #8a776b;
+  --color-teak: #b78e70;
+  --color-delta-2: #adaea5;
+  --color-antique-brass: #c08a6e;
+  --color-battleship-gray: #8a9182;
+  --color-millbrook: #5d4b37;
+}
+
 @layer components {
   .home {
     --bg-y: 0;
-    background-image: url("/assets/dots.png");
+    background-image: url("/assets/music-notes.png");
     background-size: 500px 500px;
-    background-position: 0 var(--bg-y);
+    background-position: center var(--bg-y);
     background-repeat: repeat;
     background-attachment: fixed;
   }

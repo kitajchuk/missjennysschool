@@ -4,83 +4,95 @@
 /* @layer theme, base, components, utilities; */
 
 @theme {
-  --color-cement: #8a6c61;
-  --color-indian-khaki: #bda891;
-  --color-tea: #c1bcad;
-  --color-heathered-gray: #b6ab90;
-  --color-lemon-grass: #96958b;
-  --color-heathered-gray-2: #bab792;
-  --color-storm-dust: #686961;
-  --color-pearl-bush: #e5ddd5;
-  --color-vanilla: #d3c5b0;
-  --color-parchment: #efe7cf;
-  --color-bone: #eadfcf;
-  --color-nomad: #b5aea2;
-  --color-donkey-brown: #a2937e;
-  --color-delta: #a0a197;
-  --color-americano: #8a776b;
-  --color-teak: #b78e70;
-  --color-delta-2: #adaea5;
-  --color-antique-brass: #c08a6e;
-  --color-battleship-gray: #8a9182;
-  --color-millbrook: #5d4b37;
+  /* Colors: https://www.color-blindness.com/color-name-hue/ */
+  --color-beaver: #8a6c61;
+  --color-khaki: #bda891;
+  --color-pale-taupe: #c1bcad;
+  --color-light-taupe: #b6ab90;
+  --color-warm-gray: #96958b;
+  --color-sage: #bab792;
+  --color-dark-olive: #686961;
+  --color-pearl: #e5ddd5;
+  --color-tan: #d3c5b0;
+  --color-cream: #efe7cf;
+  --color-eggshell: #eadfcf;
+  --color-silver: #b5aea2;
+  --color-dust: #a2937e;
+  --color-pewter: #a0a197;
+  --color-mocha: #8a776b;
+  --color-caramel: #b78e70;
+  --color-ash: #adaea5;
+  --color-copper: #c08a6e;
+  --color-slate: #8a9182;
+  --color-coffee: #5d4b37;
+
+  /* Fonts */
+  --font-sans: "Atkinson Hyperlegible", sans-serif;
+  --font-serif: "Kiwi Maru", serif;
+
+  /* Typography */
+  --text-h1: 4rem;
+}
+
+@layer base {
+  h1 {
+    @apply text-h1 font-serif text-coffee;
+  }
+
+  h2 {
+    @apply font-serif text-coffee;
+  }
+
+  h3 {
+    @apply font-serif text-coffee;
+  }
+
+  h4 {
+    @apply font-serif text-coffee;
+  }
+
+  h5 {
+    @apply font-serif text-coffee;
+  }
+
+  h6 {
+    @apply font-serif text-coffee;
+  }
+
+  p {
+    @apply font-sans text-base;
+  }
+
+  ul {
+    @apply list-disc ml-4;
+  }
+
+  ol {
+    @apply list-decimal ml-4;
+  }
+
+  em {
+    @apply italic;
+  }
 }
 
 @layer components {
   .home {
     --bg-y: 0;
-    background-image: url("/assets/music-notes.png");
+    /* background-image: url("/assets/music-notes.png"); */
     background-size: 500px 500px;
     background-position: center var(--bg-y);
     background-repeat: repeat;
     background-attachment: fixed;
   }
 
+  /* Used for embeds: src/_includes/templates/embed.liquid */
   .embed {
     iframe {
       @apply absolute inset-0 w-full h-full;
     }
   }
 
-  .cms {
-    h1 {
-      @apply text-4xl font-bold;
-    }
-
-    h2 {
-      @apply text-2xl font-bold;
-    }
-
-    h3 {
-      @apply text-xl font-bold;
-    }
-
-    h4 {
-      @apply text-lg font-bold;
-    }
-
-    h5 {
-      @apply text-base font-bold;
-    }
-
-    h6 {
-      @apply text-sm font-bold;
-    }
-
-    p {
-      @apply text-base;
-    }
-
-    ul {
-      @apply list-disc ml-4;
-    }
-
-    ol {
-      @apply list-decimal ml-4;
-    }
-
-    em {
-      @apply italic;
-    }
-  }
+  /* Used for CMS content: src/_includes/templates/rich_text.liquid */
+  /* .cms {} */
 }

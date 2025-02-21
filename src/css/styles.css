@@ -4,7 +4,7 @@
 /* @layer theme, base, components, utilities; */
 
 @theme {
-  /* Colors: https://www.color-blindness.com/color-name-hue/ */
+  /* Colors */
   --color-beaver: #8a6c61;
   --color-khaki: #bda891;
   --color-pale-taupe: #c1bcad;
@@ -30,13 +30,15 @@
   --font-sans: "Atkinson Hyperlegible", sans-serif;
   --font-serif: "Kiwi Maru", serif;
 
-  /* Typescale: 1.250 Major Third */
-  --text-h1: clamp(1.953rem, 10vw, 3.815rem);
-  --text-h2: clamp(1.563rem, 9vw, 3.052rem);
-  --text-h3: clamp(1.25rem, 8vw, 2.441rem);
-  --text-h4: clamp(1rem, 7vw, 1.953rem);
-  --text-h5: clamp(1rem, 6vw, 1.563rem);
-  --text-h6: clamp(1rem, 5vw, 1.25rem);
+  /* Typescale */
+  /* Max: 1.250 Major Third */
+  /* Min: 1.067 Minor Second */
+  --text-h1: clamp(1.476rem, 10vw, 3.815rem);
+  --text-h2: clamp(1.383rem, 9vw, 3.052rem);
+  --text-h3: clamp(1.296rem, 8vw, 2.441rem);
+  --text-h4: clamp(1.215rem, 7vw, 1.953rem);
+  --text-h5: clamp(1.138rem, 6vw, 1.563rem);
+  --text-h6: clamp(1.067rem, 5vw, 1.25rem);
 }
 
 @layer base {

@@ -7,38 +7,42 @@
   </head>
   <body>
     <header class="flex justify-between items-center bg-white py-5 px-8 sticky top-0 z-10 border-b border-silver">
-      <nav aria-label="Main navigation" class="font-serif text-coffee font-medium flex items-center gap-8">
-        <a href="/" aria-label="Home" {% if slug == "" %}aria-current="page"{% endif %} class="w-15 h-15 bg-cream rounded-full block"></a>
-        <ul class="flex items-center gap-4">
-          <li>
-            <a href="/about/" {% if slug == "about" %}aria-current="page"{% endif %}>About</a>
-          </li>
-          <li>
-            <a href="/tuition/" {% if slug == "tuition" %}aria-current="page"{% endif %}>Tuition</a>
-          </li>
-          <li>
-            <a href="/recipes/" {% if slug == "recipes" %}aria-current="page"{% endif %}>Recipes</a>
-          </li>
-          <li>
-            <a href="/blog/" {% if slug == "blog" %}aria-current="page"{% endif %}>Blog</a>
-          </li>
-          <li>
-            <a href="/contact/" {% if slug == "contact" %}aria-current="page"{% endif %}>Contact</a>
-          </li>
-        </ul>
+      <nav aria-label="Main navigation" class="font-serif text-coffee font-medium flex items-center gap-8 w-full">
+        <a href="/" aria-label="Home" {% if slug == "" %}aria-current="page"{% endif %} class="block">
+          <div class="w-15 h-15 bg-cream rounded-full block"></div>
+        </a>
+        <div class="flex flex-1 items-center justify-between w-full" id="navi">
+          <ul class="flex items-center gap-4">
+            <li>
+              <a href="/about/" {% if slug == "about" %}aria-current="page"{% endif %}>About</a>
+            </li>
+            <li>
+              <a href="/tuition/" {% if slug == "tuition" %}aria-current="page"{% endif %}>Tuition</a>
+            </li>
+            <li>
+              <a href="/recipes/" {% if slug == "recipes" %}aria-current="page"{% endif %}>Recipes</a>
+            </li>
+            <li>
+              <a href="/blog/" {% if slug == "blog" %}aria-current="page"{% endif %}>Blog</a>
+            </li>
+            <li>
+              <a href="/contact/" {% if slug == "contact" %}aria-current="page"{% endif %}>Contact</a>
+            </li>
+          </ul>
+          <ul class="flex items-center gap-6">
+            <li>
+              <a href="{{ site.eventbrite_page.url }}" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/eventbrite.png" alt="Eventbrite" width="24" height="24" />
+              </a>
+            </li>
+            <li>
+              <a href="{{ site.facebook_page.url }}" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/facebook.png" alt="Facebook" width="24" height="24" />
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav>
-      <ul class="flex items-center gap-6">
-        <li>
-          <a href="{{ site.eventbrite_page.url }}" target="_blank" rel="noopener noreferrer">
-            <img src="/assets/eventbrite.png" alt="Eventbrite" width="24" height="24" />
-          </a>
-        </li>
-        <li>
-          <a href="{{ site.facebook_page.url }}" target="_blank" rel="noopener noreferrer">
-            <img src="/assets/facebook.png" alt="Facebook" width="24" height="24" />
-          </a>
-        </li>
-      </ul>
     </header>
     <main>
       {{ content }}

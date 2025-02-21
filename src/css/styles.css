@@ -31,7 +31,7 @@
   --font-serif: "Kiwi Maru", serif;
 
   /* Typography */
-  --text-h1: 4rem;
+  --text-h1: clamp(2rem, 10vw, 4rem);
 }
 
 @layer base {

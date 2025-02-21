@@ -30,8 +30,13 @@
   --font-sans: "Atkinson Hyperlegible", sans-serif;
   --font-serif: "Kiwi Maru", serif;
 
-  /* Typography */
-  --text-h1: clamp(2rem, 10vw, 4rem);
+  /* Typescale: 1.250 Major Third */
+  --text-h1: clamp(1.953rem, 10vw, 3.815rem);
+  --text-h2: clamp(1.563rem, 9vw, 3.052rem);
+  --text-h3: clamp(1.25rem, 8vw, 2.441rem);
+  --text-h4: clamp(1rem, 7vw, 1.953rem);
+  --text-h5: clamp(1rem, 6vw, 1.563rem);
+  --text-h6: clamp(1rem, 5vw, 1.25rem);
 }
 
 @layer base {
@@ -40,23 +45,23 @@
   }
 
   h2 {
-    @apply font-serif text-coffee;
+    @apply text-h2 font-serif text-coffee;
   }
 
   h3 {
-    @apply font-serif text-coffee;
+    @apply text-h3 font-serif text-coffee;
   }
 
   h4 {
-    @apply font-serif text-coffee;
+    @apply text-h4 font-serif text-coffee;
   }
 
   h5 {
-    @apply font-serif text-coffee;
+    @apply text-h5 font-serif text-coffee;
   }
 
   h6 {
-    @apply font-serif text-coffee;
+    @apply text-h6 font-serif text-coffee;
   }
 
   p {
@@ -71,7 +76,7 @@
 @layer components {
   .home {
     --bg-y: 0;
-    /* background-image: url("/assets/music-notes.png"); */
+    background-image: url("/assets/music-notes.png");
     background-size: 500px 500px;
     background-position: center var(--bg-y);
     background-repeat: repeat;

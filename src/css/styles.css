@@ -63,14 +63,6 @@
     @apply font-sans text-base;
   }
 
-  ul {
-    @apply list-disc ml-4;
-  }
-
-  ol {
-    @apply list-decimal ml-4;
-  }
-
   em {
     @apply italic;
   }
@@ -94,5 +86,13 @@
   }
 
   /* Used for CMS content: src/_includes/templates/rich_text.liquid */
-  /* .cms {} */
+  .cms {
+    ul {
+      @apply list-disc ml-4;
+    }
+
+    ol {
+      @apply list-decimal ml-4;
+    }
+  }
 }

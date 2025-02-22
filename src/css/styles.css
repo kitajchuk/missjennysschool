@@ -78,7 +78,7 @@
 @layer components {
   .home {
     --bg-y: 0;
-    background-image: url("/assets/music-notes.png");
+    /* background-image: url("/assets/music-notes.png"); */
     background-size: 500px 500px;
     background-position: center var(--bg-y);
     background-repeat: repeat;

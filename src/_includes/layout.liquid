@@ -1,3 +1,21 @@
+{%
+  assign header_classes = "
+    flex
+    justify-between
+    items-center
+    bg-white
+    py-5
+    px-8
+    max-sm:px-4
+    max-sm:py-4
+    sticky
+    top-0
+    z-10
+    border-b
+    border-silver
+  " | asClassNames
+%}
+
 <!doctype html>
 <html lang="en" class="{{ class }} bg-cream text-dark-olive">
   <head>
@@ -6,47 +24,8 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <header class="flex justify-between items-center bg-white py-5 px-8 max-sm:px-4 max-sm:py-4 sticky top-0 z-10 border-b border-silver">
-      <nav aria-label="Main navigation" class="flex items-center gap-8 w-full">
-        <a href="/" aria-label="Home" {% if slug == "" %}aria-current="page"{% endif %} class="block relative z-20">
-          <div class="w-15 h-15 max-sm:w-10 max-sm:h-10 bg-cream rounded-full block"></div>
-        </a>
-        <button class="cursor-pointer hidden max-sm:flex max-sm:items-baseline max-sm:gap-2 font-serif text-coffee font-medium ml-auto relative z-20" aria-expanded="false" aria-controls="navi" id="navi-control">
-          Menu
-          <img src="/assets/arrow-down.svg" alt="" width="12" height="8" class="transition-transform" id="navi-arrow" />
-        </button>
-        <div class="flex flex-1 items-center justify-between w-full max-sm:fixed max-sm:inset-0 max-sm:bg-white max-sm:z-10 max-sm:flex-col max-sm:justify-center max-sm:gap-16 max-sm:pointer-events-none max-sm:opacity-0" id="navi">
-          <ul class="font-serif text-coffee font-medium flex items-center gap-4 max-sm:text-h5 max-sm:flex-col max-sm:gap-8">
-            <li>
-              <a href="/about/" {% if slug == "about" %}aria-current="page"{% endif %}>About</a>
-            </li>
-            <li>
-              <a href="/tuition/" {% if slug == "tuition" %}aria-current="page"{% endif %}>Tuition</a>
-            </li>
-            <li>
-              <a href="/recipes/" {% if slug == "recipes" %}aria-current="page"{% endif %}>Recipes</a>
-            </li>
-            <li>
-              <a href="/blog/" {% if slug == "blog" %}aria-current="page"{% endif %}>Blog</a>
-            </li>
-            <li>
-              <a href="/contact/" {% if slug == "contact" %}aria-current="page"{% endif %}>Contact</a>
-            </li>
-          </ul>
-          <ul class="flex items-center gap-6">
-            <li>
-              <a href="{{ site.eventbrite_page.url }}" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/eventbrite.png" alt="Eventbrite" width="24" height="24" />
-              </a>
-            </li>
-            <li>
-              <a href="{{ site.facebook_page.url }}" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/facebook.png" alt="Facebook" width="24" height="24" />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <header class="{{ header_classes }}">
+      {% render "navi", site: site, slug: slug %}
     </header>
     <main>
       {{ content }}

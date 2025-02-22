@@ -46,6 +46,7 @@
     max-sm:gap-8
   " | asClassNames
 %}
+
 <nav aria-label="Main navigation" class="flex items-center gap-8 w-full">
   <a href="/" aria-label="Home" {% if slug == "" %}aria-current="page"{% endif %} class="block relative z-20">
     <div class="w-15 h-15 max-sm:w-10 max-sm:h-10 bg-cream rounded-full block"></div>
@@ -56,21 +57,11 @@
   </button>
   <div class="{{ navi_classes }}" id="navi">
     <ul class="{{ list_classes }}">
-      <li>
-        <a href="/about/" {% if slug == "about" %}aria-current="page"{% endif %}>About</a>
-      </li>
-      <li>
-        <a href="/tuition/" {% if slug == "tuition" %}aria-current="page"{% endif %}>Tuition</a>
-      </li>
-      <li>
-        <a href="/recipes/" {% if slug == "recipes" %}aria-current="page"{% endif %}>Recipes</a>
-      </li>
-      <li>
-        <a href="/blog/" {% if slug == "blog" %}aria-current="page"{% endif %}>Blog</a>
-      </li>
-      <li>
-        <a href="/contact/" {% if slug == "contact" %}aria-current="page"{% endif %}>Contact</a>
-      </li>
+      {% for link in navi %}
+        <li>
+          <a href="/{{ link }}/" {% if slug == link %}aria-current="page" class="border-b border-coffee"{% endif %}>{{ link | capitalize }}</a>
+        </li>
+      {% endfor %}
     </ul>
     <ul class="flex items-center gap-6">
       <li>

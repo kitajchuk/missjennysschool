@@ -1,6 +1,7 @@
 (() => {
   let isOpen = false;
   const navi = document.getElementById("navi");
+  const naviMenu = document.getElementById("navi-menu");
   const naviArrow = document.getElementById("navi-arrow");
   const naviControl = document.getElementById("navi-control");
   const animClasses = ["transition-opacity"];
@@ -9,31 +10,33 @@
 
   function openNavi() {
     naviControl.setAttribute("aria-expanded", "true");
+    navi.classList.add("max-sm:text-pearl");
     naviArrow.classList.add("rotate-180");
-    navi.classList.add(...animClasses);
+    naviMenu.classList.add(...animClasses);
     setTimeout(() => {
-      navi.classList.remove(...hideClasses);
-      navi.classList.add(...showClasses);
+      naviMenu.classList.remove(...hideClasses);
+      naviMenu.classList.add(...showClasses);
     }, 0);
   }
 
   function closeNavi(withAnimation = true) {
-    const naviStyles = getComputedStyle(navi);
-    const naviAnimDuration = naviStyles.transitionDuration;
-    const naviAnimDurationMs = naviAnimDuration.replace("s", "") * 1000;
+    const menuStyles = getComputedStyle(naviMenu);
+    const menuAnimDuration = menuStyles.transitionDuration;
+    const menuAnimDurationMs = menuAnimDuration.replace("s", "") * 1000;
     const removeClasses = withAnimation
       ? [...showClasses]
       : [...showClasses, ...animClasses];
 
     naviControl.setAttribute("aria-expanded", "false");
+    navi.classList.remove("max-sm:text-pearl");
     naviArrow.classList.remove("rotate-180");
-    navi.classList.remove(...removeClasses);
-    navi.classList.add(...hideClasses);
+    naviMenu.classList.remove(...removeClasses);
+    naviMenu.classList.add(...hideClasses);
 
     if (withAnimation) {
       setTimeout(() => {
-        navi.classList.remove(...animClasses);
-      }, naviAnimDurationMs);
+        naviMenu.classList.remove(...animClasses);
+      }, menuAnimDurationMs);
     }
   }
 

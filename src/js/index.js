@@ -23,13 +23,23 @@
     naviControl.setAttribute("aria-expanded", isOpen ? "true" : "false");
 
     if (isOpen) {
-      navi.classList.remove(...hideClasses);
-      navi.classList.add(...showClasses, ...animClasses);
       naviArrow.classList.add("rotate-180");
+      navi.classList.add(...animClasses);
+      setTimeout(() => {
+        navi.classList.remove(...hideClasses);
+        navi.classList.add(...showClasses);
+      }, 0);
     } else {
-      navi.classList.remove(...showClasses, ...animClasses);
-      navi.classList.add(...hideClasses);
+      const naviStyles = getComputedStyle(navi);
+      const naviAnimDuration = naviStyles.transitionDuration;
+      const naviAnimDurationMs = naviAnimDuration.replace("s", "") * 1000;
+
       naviArrow.classList.remove("rotate-180");
+      navi.classList.remove(...showClasses);
+      navi.classList.add(...hideClasses);
+      setTimeout(() => {
+        navi.classList.remove(...animClasses);
+      }, naviAnimDurationMs);
     }
   });
 

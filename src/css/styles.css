@@ -39,6 +39,9 @@
   --text-h4: clamp(1.215rem, 7vw, 1.953rem);
   --text-h5: clamp(1.138rem, 6vw, 1.563rem);
   --text-h6: clamp(1.067rem, 5vw, 1.25rem);
+
+  /* Breakpoints */
+  --breakpoint-xsm: 30rem;
 }
 
 @layer base {
@@ -101,5 +104,11 @@
     ol {
       @apply list-decimal ml-4;
     }
+  }
+}
+
+@layer utilities {
+  .shadow-text {
+    text-shadow: 0 4px 8px rgba(0 0 0 / 0.25);
   }
 }

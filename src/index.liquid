@@ -4,71 +4,29 @@ slug: ""
 class: home
 ---
 
-<section class="text-center flex flex-col items-center gap-16 mx-auto max-w-[540px] max-sm:gap-10">
-  <h1>{{ home.title | asText }}</h1>
+<section class="relative h-[42vw] flex items-center justify-center max-lg:h-[60vw] max-md:h-[80vw] max-xsm:h-[100vw]">
+  {% render "templates/image"
+    , image: home.hero
+    , classes: "absolute z-1 w-[calc(100%+20vw)] max-w-[calc(100%+20vw)] h-full top-0 left-[-10vw] object-cover object-[bottom_-50px_left_0] max-md:object-bottom" %}
+  <div class="absolute z-2 top-0 left-0 w-full h-full bg-coffee/40" aria-hidden="true"></div>
+  <h1 class="relative z-3 mx-auto max-w-[540px] text-center text-pearl shadow-text">
+    {{ home.title | asText }}
+  </h1>
+</section>
 
-  <p>
+<section class="py-24 px-8 max-sm:py-16 max-sm:px-4 flex flex-col items-center gap-12">
+  <h5 class="text-center text-dark-olive max-w-[768px]">
     {{ home.description }}
-  </p>
+  </h5>
+  <a href="/about/" class="block px-6 py-2 rounded-lg bg-copper text-center text-white">
+    Learn more
+  </a>
+</section>
 
-  <div class="h-50 w-full bg-silver rounded flex items-center justify-center">
-    <p class="text-white">Silver</p>
-  </div>
-  <div class="h-50 w-full bg-khaki rounded flex items-center justify-center">
-    <p class="text-white">Khaki</p>
-  </div>
-  <div class="h-50 w-full bg-pale-taupe rounded flex items-center justify-center">
-    <p class="text-white">Pale Taupe</p>
-  </div>
-  <div class="h-50 w-full bg-light-taupe rounded flex items-center justify-center">
-    <p class="text-white">Light Taupe</p>
-  </div>
-  <div class="h-50 w-full bg-warm-gray rounded flex items-center justify-center">
-    <p class="text-white">Warm Gray</p>
-  </div>
-  <div class="h-50 w-full bg-sage rounded flex items-center justify-center">
-    <p class="text-white">Sage</p>
-  </div>
-  <div class="h-50 w-full bg-dark-olive rounded flex items-center justify-center">
-    <p class="text-white">Dark Olive</p>
-  </div>
-  <div class="h-50 w-full bg-pearl rounded flex items-center justify-center">
-    <p class="text-white">Pearl</p>
-  </div>
-  <div class="h-50 w-full bg-tan rounded flex items-center justify-center">
-    <p class="text-white">Tan</p>
-  </div>
-  <div class="h-50 w-full bg-cream rounded flex items-center justify-center">
-    <p class="text-white">Cream</p>
-  </div>
-  <div class="h-50 w-full bg-eggshell rounded flex items-center justify-center">
-    <p class="text-white">Eggshell</p>
-  </div>
-  <div class="h-50 w-full bg-silver rounded flex items-center justify-center">
-    <p class="text-white">Silver</p>
-  </div>
-  <div class="h-50 w-full bg-beaver rounded flex items-center justify-center">
-    <p class="text-white">Beaver</p>
-  </div>
-  <div class="h-50 w-full bg-dust rounded flex items-center justify-center">
-    <p class="text-white">Dust</p>
-  </div>
-  <div class="h-50 w-full bg-mocha rounded flex items-center justify-center">
-    <p class="text-white">Mocha</p>
-  </div>
-  <div class="h-50 w-full bg-caramel rounded flex items-center justify-center">
-    <p class="text-white">Caramel</p>
-  </div>
-  <div class="h-50 w-full bg-ash rounded flex items-center justify-center">
-    <p class="text-white">Ash</p>
-  </div>
-  <div class="h-50 w-full bg-copper rounded flex items-center justify-center">
-    <p class="text-white">Copper</p>
-  </div>
-  <div class="h-50 w-full bg-slate rounded flex items-center justify-center">
-    <p class="text-white">Slate</p>
-  </div>
-  <div class="h-50 w-full bg-coffee rounded flex items-center justify-center">
-    <p class="text-white">Coffee</p>
-  </div>
+<section class="py-24 px-8 max-sm:py-16 max-sm:px-4 bg-dark-olive">
+  <p class="text-pearl text-center">[Pillars]</p>
+</section>
+
+<section class="py-24 px-8 max-sm:py-16 max-sm:px-4">
+  <p class="text-dark-olive text-center">[Gallery]</p>
 </section>

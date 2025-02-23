@@ -1,6 +1,7 @@
 {% assign img_set = image | asImageWidthSrcSet %}
 {% assign img_sizes = sizes | default: "50vw" %}
 {% assign img_loading = loading | default: "lazy" %}
+{% assign img_classes = classes | default: "" %}
 
 <img
   src="{{ img_set.src }}"
@@ -9,4 +10,7 @@
   height="{{ image.dimensions.height }}"
   srcset="{{ img_set.srcset }}"
   sizes="{{ img_sizes }}"
-  loading="{{ img_loading }}" />
+  loading="{{ img_loading }}"
+  {% if img_classes %}
+  class="{{ img_classes }}"
+  {% endif %} />

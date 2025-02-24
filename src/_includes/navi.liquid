@@ -16,10 +16,12 @@
     aria-expanded="false"
     aria-controls="navi"
     id="navi-control">
-    Menu
-    {% render "svg/arrow_down" %}
+    <span>Menu</span>
+    <span id="navi-arrow" class="transition-transform motion-reduce:transition-none">
+      {% render "svg/arrow_down" %}
+    </span>
   </button>
-  <div id="navi-menu" class="flex flex-1 items-center justify-between w-full max-sm:fixed max-sm:inset-0 max-sm:bg-slate max-sm:z-10 max-sm:flex-col max-sm:justify-center max-sm:gap-16 max-sm:pointer-events-none max-sm:opacity-0">
+  <div id="navi-menu" class="flex flex-1 items-center justify-between w-full max-sm:fixed max-sm:inset-0 max-sm:bg-slate max-sm:z-10 max-sm:flex-col max-sm:justify-center max-sm:gap-16 max-sm:pointer-events-none max-sm:opacity-0 motion-reduce:transition-none">
     <ul class="flex items-center gap-4 max-sm:text-h6 max-sm:flex-col max-sm:gap-8">
       {% for link in navi %}
         <li>

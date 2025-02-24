@@ -1,11 +1,12 @@
 {% assign img_set = image | asImageWidthSrcSet %}
+{% assign img_alt = alt | default: image.alt %}
 {% assign img_sizes = sizes | default: "50vw" %}
 {% assign img_loading = loading | default: "lazy" %}
 {% assign img_classes = classes | default: "" %}
 
 <img
   src="{{ img_set.src }}"
-  alt="{{ image.alt }}"
+  alt="{{ img_alt }}"
   width="{{ image.dimensions.width }}"
   height="{{ image.dimensions.height }}"
   srcset="{{ img_set.srcset }}"

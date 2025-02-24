@@ -33,7 +33,8 @@
   /* Typescale */
   /* Max: 1.250 Major Third */
   /* Min: 1.067 Minor Second */
-  --text-h1: clamp(1.476rem, 10vw, 3.815rem);
+  --text-h1: clamp(1.476rem, 10vw, 4rem);
+  /* --text-h1: clamp(1.476rem, 10vw, 3.815rem); */
   --text-h2: clamp(1.383rem, 9vw, 3.052rem);
   --text-h3: clamp(1.296rem, 8vw, 2.441rem);
   --text-h4: clamp(1.215rem, 7vw, 1.953rem);
@@ -109,6 +110,6 @@
 
 @layer utilities {
   .shadow-text {
-    text-shadow: 0 4px 8px rgba(0 0 0 / 0.25);
+    text-shadow: 0 4px 8px var(--color-coffee);
   }
 }

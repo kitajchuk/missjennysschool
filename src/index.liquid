@@ -6,9 +6,13 @@ class: home
 
 <section class="relative overflow-hidden h-[42vw] flex items-center justify-center max-lg:h-[60vw] max-md:h-[80vw] max-xsm:h-[100vw]">
   {% render "templates/image"
-    , image: home.hero
+    , image: home.hero_2
     , sizes: "100vw"
-    , classes: "absolute z-1 w-[calc(100%+20vw)] max-w-[calc(100%+20vw)] h-full top-0 left-[-10vw] object-cover object-[bottom_-50px_left_0] max-md:object-bottom" %}
+    , classes: "absolute z-1 w-[calc(100%+20vw)] max-w-[calc(100%+20vw)] h-full top-0 left-[-10vw] object-cover object-[bottom_-4vw_left_0] max-md:object-bottom" %}
+  {% comment %} {% render "templates/image"
+        , image: home.hero
+        , sizes: "100vw"
+      , classes: "absolute z-1 w-full h-full top-0 left-0 object-cover object-[bottom_-12vw_left_0] max-md:object-bottom" %} {% endcomment %}
   <div class="absolute z-2 top-0 left-0 w-full h-full bg-coffee/40" aria-hidden="true"></div>
   <h1 class="relative z-3 mx-auto max-w-[540px] text-center text-pearl shadow-text">
     {{ home.title | asText }}

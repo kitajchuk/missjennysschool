@@ -25,7 +25,7 @@ class: testing
     <div class="flex justify-center">
       <div class="w-full max-w-xl">
         {%
-          render "templates/embed"
+          render "partials/embed"
           , provider: testing.vimeo_embed.provider_name
           , video_id: testing.vimeo_embed.video_id
           , title: testing.vimeo_embed.title
@@ -37,7 +37,7 @@ class: testing
       <div class="w-full max-w-xl">
         {% assign youtube_id = testing.youtube_embed.embed_url | replace: "https://www.youtube.com/watch?v=", "" %}
         {%
-          render "templates/embed"
+          render "partials/embed"
           , provider: testing.youtube_embed.provider_name
           , video_id: youtube_id
           , title: testing.youtube_embed.title
@@ -55,7 +55,7 @@ class: testing
     </details>
     <div class="flex justify-center">
       <div class="w-full max-w-xl">
-        {% render "templates/rich_text"
+        {% render "partials/rich_text"
           , body: testing.body %}
       </div>
     </div>

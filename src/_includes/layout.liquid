@@ -14,7 +14,7 @@
   </head>
   <body>
     <header class="flex justify-between items-center bg-white/90 py-5 px-8 sticky top-0 z-10 border-b border-silver max-sm:px-4 max-sm:py-4">
-      {% render "navi"
+      {% render "templates/navi"
         , site: site
         , slug: slug
         , navi: navi %}
@@ -30,7 +30,7 @@
           </li>
         {% endfor %}
       </ul>
-      {% render "social"
+      {% render "templates/social"
         , site: site
         , classes: "hidden max-sm:flex" %}
       <p>Copyright

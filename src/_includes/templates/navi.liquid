@@ -9,7 +9,7 @@
     aria-current="page"
     {% endif %}
     class="block relative z-20">
-    {% render "logo" %}
+    {% render "templates/logo" %}
   </a>
   <button
     class="cursor-pointer hidden ml-auto relative z-20 max-sm:flex max-sm:items-baseline max-sm:gap-2"
@@ -34,7 +34,7 @@
         </li>
       {% endfor %}
     </ul>
-    {% render "social"
+    {% render "templates/social"
       , site: site
       , classes: "text-copper max-sm:text-inherit" %}
   </div>

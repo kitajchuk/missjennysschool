@@ -2,7 +2,7 @@
   let index = 0;
   let interval = null;
   const gallery = document.getElementById("gallery");
-  const images = gallery.querySelectorAll("img");
+  const images = gallery?.querySelectorAll("img");
 
   function updateIndex() {
     index = (index + 1) % images.length;
@@ -26,16 +26,22 @@
     interval = null;
   }
 
-  startInterval();
+  function init() {
+    startInterval();
 
-  const intersectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        startInterval();
-      } else {
-        stopInterval();
-      }
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startInterval();
+        } else {
+          stopInterval();
+        }
+      });
     });
-  });
-  intersectionObserver.observe(gallery);
+    intersectionObserver.observe(gallery);
+  }
+
+  if (gallery) {
+    init();
+  }
 })();

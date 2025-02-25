@@ -33,13 +33,18 @@
   /* Typescale */
   /* Max: 1.250 Major Third */
   /* Min: 1.067 Minor Second */
-  --text-h1: clamp(1.476rem, 10vw, 4rem);
-  /* --text-h1: clamp(1.476rem, 10vw, 3.815rem); */
-  --text-h2: clamp(1.383rem, 9vw, 3.052rem);
-  --text-h3: clamp(1.296rem, 8vw, 2.441rem);
-  --text-h4: clamp(1.215rem, 7vw, 1.953rem);
-  --text-h5: clamp(1.138rem, 6vw, 1.563rem);
-  --text-h6: clamp(1.067rem, 5vw, 1.25rem);
+  /* --text-h1: clamp(1.476rem, 10vw, 4rem); */
+  /* --text-h2: clamp(1.383rem, 9vw, 3.052rem); */
+  /* --text-h3: clamp(1.296rem, 8vw, 2.441rem); */
+  /* --text-h4: clamp(1.215rem, 7vw, 1.953rem); */
+  /* --text-h5: clamp(1.138rem, 6vw, 1.563rem); */
+  /* --text-h6: clamp(1.067rem, 5vw, 1.25rem); */
+  --text-h1: clamp(2.441rem, 4.444vw, 4rem);
+  --text-h2: clamp(1.383rem, 3.333vw, 3.052rem);
+  --text-h3: clamp(1.296rem, 2.708vw, 2.441rem);
+  --text-h4: clamp(1.215rem, 2.153vw, 1.953rem);
+  --text-h5: clamp(1.138rem, 1.736vw, 1.563rem);
+  --text-h6: clamp(1.067rem, 1.388vw, 1.25rem);
 
   /* Breakpoints */
   --breakpoint-xsm: 30rem;
@@ -47,27 +52,27 @@
 
 @layer base {
   h1 {
-    @apply text-h1 font-serif text-coffee;
+    @apply text-h1 font-serif;
   }
 
   h2 {
-    @apply text-h2 font-serif text-coffee;
+    @apply text-h2 font-serif;
   }
 
   h3 {
-    @apply text-h3 font-serif text-coffee;
+    @apply text-h3 font-serif;
   }
 
   h4 {
-    @apply text-h4 font-serif text-coffee;
+    @apply text-h4 font-serif;
   }
 
   h5 {
-    @apply text-h5 font-serif text-coffee;
+    @apply text-h5 font-serif;
   }
 
   h6 {
-    @apply text-h6 font-serif text-coffee;
+    @apply text-h6 font-serif;
   }
 
   p {

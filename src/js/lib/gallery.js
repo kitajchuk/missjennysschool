@@ -18,7 +18,7 @@
 
   function startInterval() {
     stopInterval();
-    interval = setInterval(changeImage, 8000);
+    interval = setInterval(changeImage, 6000);
   }
 
   function stopInterval() {

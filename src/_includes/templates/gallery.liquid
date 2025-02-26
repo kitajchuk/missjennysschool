@@ -4,16 +4,17 @@
   <div class="absolute z-1 w-full h-full top-0 left-0">
     {% for item in gallery %}
       {% assign loading = "lazy" %}
+      {% assign alt = "Hero image for Miss Jenny's School" %}
+      {% assign classes = item_classes %}
+      {% assign jslazy = false %}
+
       {% if forloop.first %}
         {% assign loading = "eager" %}
       {% endif %}
 
-      {% assign alt = "Hero image for Miss Jenny's School" %}
-
-      {% assign classes = item_classes %}
-
       {% if forloop.index != 1 %}
         {% assign classes = classes | append: " opacity-0" %}
+        {% assign jslazy = true %}
       {% endif %}
 
       {% assign classes = classes | append: " transition-opacity ease-in-out duration-1000 motion-reduce:transition-none" %}
@@ -23,7 +24,8 @@
         , image: item.image
         , sizes: "100vw"
         , loading: loading
-        , classes: classes %}
+        , classes: classes
+        , jslazy: jslazy %}
     {% endfor %}
   </div>
   <div class="absolute z-2 top-0 left-0 w-full h-full bg-coffee/40" aria-hidden="true"></div>

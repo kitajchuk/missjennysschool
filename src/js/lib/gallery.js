@@ -3,6 +3,7 @@
   let interval = null;
   const gallery = document.getElementById("gallery");
   const images = gallery?.querySelectorAll("img");
+  const lazyImages = gallery?.querySelectorAll("img[data-src]");
 
   function updateIndex() {
     index = (index + 1) % images.length;
@@ -26,6 +27,23 @@
     interval = null;
   }
 
+  function load() {
+    return Promise.all(
+      [...lazyImages].map((image) => {
+        return new Promise((resolve, reject) => {
+          const src = image.dataset.src;
+          const srcset = image.dataset.srcset;
+          image.removeAttribute("data-src");
+          image.removeAttribute("data-srcset");
+          image.src = src;
+          image.srcset = srcset;
+          image.onload = resolve;
+          image.onerror = reject;
+        });
+      }),
+    );
+  }
+
   function init() {
     startInterval();
 
@@ -42,6 +60,6 @@
   }
 
   if (gallery) {
-    init();
+    load().then(init);
   }
 })();

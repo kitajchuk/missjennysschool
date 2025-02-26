@@ -16,10 +16,13 @@ script: "home"
 {% endif %}
 
 <section class="section-padding flex flex-col items-center gap-12">
-  <h5 class="text-center text-dark-olive w-[53.333vw] max-w-[768px] max-[975px]:w-full max-[975px]:max-w-[560px]">
+  <p class="font-serif text-h5 text-center text-dark-olive w-[53.333vw] max-w-[768px] max-[975px]:w-full max-[975px]:max-w-[560px]">
     {{ home.description }}
-  </h5>
-  <a href="/about/" class="block px-6 py-2 rounded-lg bg-copper text-center text-white">
+  </p>
+  <a
+    href="/about/"
+    class="block px-6 py-2 rounded-lg bg-copper text-center text-white"
+    aria-label="Learn more about Miss Jenny's School">
     Learn more
   </a>
 </section>

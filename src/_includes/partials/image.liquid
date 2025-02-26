@@ -3,13 +3,19 @@
 {% assign img_sizes = sizes | default: "50vw" %}
 {% assign img_loading = loading | default: "lazy" %}
 {% assign img_classes = classes | default: "" %}
+{% assign img_jslazy = jslazy | default: false %}
 
 <img
+  {% if img_jslazy %}
+  data-src="{{ img_set.src }}"
+  data-srcset="{{ img_set.srcset }}"
+  {% else %}
   src="{{ img_set.src }}"
+  srcset="{{ img_set.srcset }}"
+  {% endif %}
   alt="{{ img_alt }}"
   width="{{ image.dimensions.width }}"
   height="{{ image.dimensions.height }}"
-  srcset="{{ img_set.srcset }}"
   sizes="{{ img_sizes }}"
   loading="{{ img_loading }}"
   {% if img_classes %}

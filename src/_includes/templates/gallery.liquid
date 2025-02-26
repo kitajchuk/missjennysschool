@@ -1,12 +1,13 @@
 {% comment %} Default classes {% endcomment %}
-{% assign item_classes = "absolute z-1 w-full h-full top-0 left-0 object-cover object-bottom max-md:object-bottom" %}
+{% assign item_classes = "absolute z-1 w-full h-full top-0 left-0 object-cover max-md:object-bottom" %}
 
 {% comment %} Specific classes for each item... {% endcomment %}
-{% assign item_1_classes = "absolute z-1 w-full h-full top-0 left-0 object-cover object-[bottom_-12vw_left_0] max-md:object-bottom" %}
-{% assign item_2_classes = "absolute z-1 w-[calc(100%+20vw)] max-w-[calc(100%+20vw)] h-full top-0 left-[-10vw] object-cover object-[bottom_-4vw_left_0] max-md:object-bottom" %}
-{% assign item_3_classes = "absolute z-1 w-full h-full top-0 left-0 object-cover object-[bottom_-9vw_left_0] max-md:object-bottom" %}
-{% assign item_4_classes = "absolute z-1 w-full h-full top-0 left-0 object-cover object-[bottom_-15vw_left_0] max-md:object-bottom" %}
-{% assign item_5_classes = "absolute z-1 w-full h-full top-0 left-0 object-cover object-[bottom_-11vw_left_0] max-md:object-bottom" %}
+{% assign item_1_classes = "object-[bottom_-13vw_left_0]" %}
+{% assign item_2_classes = "object-[bottom_-20vw_left_0]" %}
+{% assign item_3_classes = "object-[bottom_-13vw_left_0]" %}
+{% assign item_4_classes = "object-[bottom_-59vw_left_0]" %}
+{% assign item_5_classes = "object-[bottom_-11vw_left_0]" %}
+{% assign item_6_classes = "object-[bottom_-16vw_left_0]" %}
 
 <section id="gallery" class="relative overflow-hidden px-8 h-[42vw] flex items-center justify-center max-lg:h-[60vw] max-md:h-[80vw] max-sm:px-4 max-xsm:h-[100vw]">
   <div class="absolute z-1 w-full h-full top-0 left-0">
@@ -18,17 +19,21 @@
 
       {% assign alt = "Hero image for Miss Jenny's School" %}
 
+      {% assign classes = item_classes %}
+
       {% case forloop.index %}
         {% when 1 %}
-          {% assign classes = item_1_classes %}
+          {% assign classes = classes | append: " " | append: item_1_classes %}
         {% when 2 %}
-          {% assign classes = item_2_classes %}
+          {% assign classes = classes | append: " " | append: item_2_classes %}
         {% when 3 %}
-          {% assign classes = item_3_classes %}
+          {% assign classes = classes | append: " " | append: item_3_classes %}
         {% when 4 %}
-          {% assign classes = item_4_classes %}
+          {% assign classes = classes | append: " " | append: item_4_classes %}
         {% when 5 %}
-          {% assign classes = item_5_classes %}
+          {% assign classes = classes | append: " " | append: item_5_classes %}
+        {% when 6 %}
+          {% assign classes = classes | append: " " | append: item_6_classes %}
       {% endcase %}
 
       {% if forloop.index != 1 %}

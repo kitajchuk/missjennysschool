@@ -115,9 +115,17 @@
       @apply list-decimal ml-4;
     }
   }
+
+  .hero {
+    @apply relative overflow-hidden px-4 sm:px-8 flex items-center justify-center h-[100vw] xsm:h-[80vw] md:h-[60vw] lg:h-[42vw];
+  }
 }
 
 @layer utilities {
+  .section-padding {
+    @apply py-16 px-4 sm:py-24 sm:px-8;
+  }
+
   .shadow-text {
     text-shadow: 0 4px 8px var(--color-coffee);
   }

@@ -15,7 +15,7 @@ script: "home"
     , title: home.title %}
 {% endif %}
 
-<section class="py-24 px-8 max-sm:py-16 max-sm:px-4 flex flex-col items-center gap-12">
+<section class="section-padding flex flex-col items-center gap-12">
   <h5 class="text-center text-dark-olive w-[53.333vw] max-w-[768px] max-[975px]:w-full max-[975px]:max-w-[560px]">
     {{ home.description }}
   </h5>
@@ -24,10 +24,29 @@ script: "home"
   </a>
 </section>
 
-<section class="py-24 px-8 max-sm:py-16 max-sm:px-4 bg-dark-olive">
-  <p class="text-pearl text-center">[Pillars]</p>
+<section class="section-padding bg-dark-olive">
+  <div class="grid grid-cols-1 gap-24 justify-center text-center max-w-[480px] md:max-w-[1060px] mx-auto md:grid-cols-4 md:text-left">
+    {% for item in home.pillars %}
+      {% assign classes = "flex flex-col gap-4 md:col-span-2" %}
+
+      {% if forloop.last %}
+        {% assign classes = classes | append: " md:col-start-2" %}
+      {% endif %}
+
+      <div class="{{ classes }}">
+        <div class="flex justify-center md:justify-start">
+          {% render "partials/image"
+            , image: item.icon
+            , sizes: "72px"
+            , classes: "h-[72px] w-auto" %}
+        </div>
+        <h5 class="text-sage">{{ item.headline | asText }}</h5>
+        <p class="text-cream">{{ item.content }}</p>
+      </div>
+    {% endfor %}
+  </div>
 </section>
 
-<section class="py-24 px-8 max-sm:py-16 max-sm:px-4">
+<section class="section-padding">
   <p class="text-dark-olive text-center">[Values]</p>
 </section>

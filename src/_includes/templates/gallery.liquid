@@ -1,8 +1,8 @@
 {% assign item_classes = "absolute z-1 w-full h-full top-0 left-0 object-cover" %}
 
-<section id="gallery" class="relative overflow-hidden px-8 h-[42vw] flex items-center justify-center max-lg:h-[60vw] max-md:h-[80vw] max-sm:px-4 max-xsm:h-[100vw]">
+<section id="gallery" class="hero">
   <div class="absolute z-1 w-full h-full top-0 left-0">
-    {% for item in gallery -%}
+    {% for item in gallery %}
       {% assign loading = "lazy" %}
       {% if forloop.first %}
         {% assign loading = "eager" %}

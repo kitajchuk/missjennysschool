@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <header class="flex justify-between items-center bg-white/90 py-5 px-8 sticky top-0 z-10 border-b border-silver max-sm:px-4 max-sm:py-4">
+    <header class="px-4 py-4 sm:py-5 sm:px-8 flex justify-between items-center bg-white/90 sticky top-0 z-10 border-b border-silver">
       {% render "templates/navi"
         , site: site
         , slug: slug
@@ -22,8 +22,8 @@
     <main>
       {{ content }}
     </main>
-    <footer class="text-pearl text-center font-medium font-serif bg-slate py-24 px-8 flex items-center justify-center max-sm:py-16 max-sm:px-4 max-sm:flex-col max-sm:gap-16">
-      <ul class="hidden flex-col items-center gap-4 max-sm:flex">
+    <footer class="section-padding text-pearl text-center font-medium font-serif bg-slate flex flex-col gap-16 items-center justify-center">
+      <ul class="flex flex-col items-center gap-4 sm:hidden">
         {% for link in navi %}
           <li>
             <a href="/{{ link }}/">{{ link | capitalize }}</a>
@@ -32,7 +32,7 @@
       </ul>
       {% render "templates/social"
         , site: site
-        , classes: "hidden max-sm:flex" %}
+        , classes: "flex sm:hidden" %}
       <p>Copyright
         <span id="year">{{ "now" | date: "%Y" }}</span><br/>
         {{ site.title }}</p>

@@ -55,37 +55,6 @@
 }
 
 @layer base {
-  h1 {
-    @apply text-h1 font-serif;
-  }
-
-  h2 {
-    @apply text-h2 font-serif;
-  }
-
-  h3 {
-    @apply text-h3 font-serif;
-  }
-
-  h4 {
-    @apply text-h4 font-serif;
-  }
-
-  h5 {
-    @apply text-h5 font-serif;
-  }
-
-  h6 {
-    @apply text-h6 font-serif;
-  }
-
-  p {
-    @apply font-sans text-base;
-  }
-
-  em {
-    @apply italic;
-  }
 }
 
 @layer components {
@@ -107,6 +76,38 @@
 
   /* Used for CMS content: src/_includes/templates/rich_text.liquid */
   .cms {
+    h1 {
+      @apply text-h1 font-serif;
+    }
+
+    h2 {
+      @apply text-h2 font-serif;
+    }
+
+    h3 {
+      @apply text-h3 font-serif;
+    }
+
+    h4 {
+      @apply text-h4 font-serif;
+    }
+
+    h5 {
+      @apply text-h5 font-serif;
+    }
+
+    h6 {
+      @apply text-h6 font-serif;
+    }
+
+    p {
+      @apply font-sans text-base;
+    }
+
+    em {
+      @apply italic;
+    }
+
     ul {
       @apply list-disc ml-4;
     }

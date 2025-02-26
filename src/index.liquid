@@ -16,12 +16,12 @@ script: "home"
 {% endif %}
 
 <section class="section-padding flex flex-col items-center gap-12">
-  <p class="font-serif text-h5 text-center text-dark-olive w-[53.333vw] max-w-[768px] max-[975px]:w-full max-[975px]:max-w-[560px]">
+  <h2 class="font-serif text-h5 text-center text-dark-olive w-[53.333vw] max-w-[768px] max-[975px]:w-full max-[975px]:max-w-[560px]">
     {{ home.description }}
-  </p>
+  </h2>
   <a
     href="/about/"
-    class="block px-6 py-2 rounded-lg bg-copper text-center text-white"
+    class="block px-6 py-2 rounded-lg bg-copper hover:bg-caramel transition-colors text-center text-white"
     aria-label="Learn more about Miss Jenny's School">
     Learn more
   </a>
@@ -43,7 +43,7 @@ script: "home"
             , sizes: "72px"
             , classes: "h-[72px] w-auto" %}
         </div>
-        <h5 class="text-sage">{{ item.headline | asText }}</h5>
+        <h3 class="font-medium font-serif text-h5 text-sage">{{ item.headline | asText }}</h3>
         <p class="text-cream">{{ item.content }}</p>
       </div>
     {% endfor %}

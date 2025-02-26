@@ -10,7 +10,7 @@
 
   function openNavi() {
     naviControl.setAttribute("aria-expanded", "true");
-    navi.classList.add("max-sm:text-pearl");
+    navi.classList.add("max-sm:text-cream");
     naviArrow.classList.add("rotate-180");
     naviMenu.classList.add(...animClasses);
     setTimeout(() => {
@@ -28,7 +28,7 @@
       : [...showClasses, ...animClasses];
 
     naviControl.setAttribute("aria-expanded", "false");
-    navi.classList.remove("max-sm:text-pearl");
+    navi.classList.remove("max-sm:text-cream");
     naviArrow.classList.remove("rotate-180");
     naviMenu.classList.remove(...removeClasses);
     naviMenu.classList.add(...hideClasses);

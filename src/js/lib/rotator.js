@@ -17,6 +17,7 @@ import { getIntersectionObserver } from "./observer";
       "--rotator-mask-width",
       `${item.offsetWidth}px`,
     );
+    rotatorMask.setAttribute("aria-label", `You ${item.textContent.trim()}`);
   }
 
   function changeText(currIndex) {
@@ -56,6 +57,8 @@ import { getIntersectionObserver } from "./observer";
       onIntersect: startInterval,
       onUnintersect: stopInterval,
     });
+
+    // TODO: Add a resize observer to update the mask width
   }
 
   if (rotator) {

@@ -70,7 +70,7 @@
 
   /* Hero */
   .hero {
-    @apply relative overflow-hidden px-4 sm:px-8 flex items-center justify-center h-[100vw] xsm:h-[80vw] md:h-[60vw] lg:h-[42vw];
+    @apply relative overflow-hidden px-4 sm:px-8 flex items-center justify-center border-b border-silver h-[100vw] xsm:h-[80vw] md:h-[60vw] lg:h-[42vw];
   }
 
   /* Gallery */
@@ -90,8 +90,7 @@
   .rotator-mask {
     /* default width */
     --rotator-mask-width: auto;
-    width: var(--rotator-mask-width);
-    @apply relative overflow-hidden flex flex-col whitespace-nowrap transition-[width] duration-300;
+    @apply w-(--rotator-mask-width) relative overflow-hidden flex flex-col whitespace-nowrap transition-[width] duration-300 motion-reduce:transition-none;
   }
 
   .rotator {
@@ -99,7 +98,7 @@
   }
 
   .rotator-item {
-    @apply font-bold italic text-left pl-6 pr-4 transition-all duration-300 motion-reduce:transition-none;
+    @apply font-bold italic text-left pl-4 md:pl-6 pr-4 transition-all duration-300 motion-reduce:transition-none;
   }
 
   .rotator-item-current {
@@ -170,12 +169,12 @@
 }
 
 @layer utilities {
-  .section-padding {
-    @apply py-16 px-4 sm:py-24 sm:px-8;
-  }
-
   .shadow-text {
     text-shadow: 0 4px 8px var(--color-coffee);
+  }
+
+  .section-padding {
+    @apply py-16 px-6 sm:py-24 sm:px-8;
   }
 
   .rainbow-gradient {

@@ -24,13 +24,16 @@ script: "home"
   </a>
 </section>
 
-<section class="rainbow-gradient border-t border-b border-silver px-4 sm:px-8 flex items-center justify-center select-none h-[80vw] xsm:h-[60vw] md:h-[34.72vw]">
-  <div id="rotator" class="rotator">
+<section class="rainbow-gradient border-t border-b border-silver flex items-center justify-center select-none h-[80vw] xsm:h-[60vw] md:h-[34.72vw]">
+  <div
+    id="rotator"
+    class="rotator"
+    aria-label="{{ home.values[0].value | asText }}">
     <span>You</span>
     <div id="rotator-mask" class="rotator-mask">
       {% for item in home.values %}
         {% assign classes = "rotator-item" %}
-        {% assign split_value = item.value | asText | split: "You " %}
+        {% assign split_value = item.value | asText | split: "You" %}
 
         {% if forloop.first %}
           {% assign classes = classes | append: " rotator-item-current" %}
@@ -39,7 +42,7 @@ script: "home"
         {% endif %}
 
         <span class="{{ classes }}" aria-hidden="{{ forloop.first == false }}">
-          {{ split_value[1] }}
+          {{ split_value[1] | strip }}
         </span>
       {% endfor %}
     </div>
@@ -47,7 +50,7 @@ script: "home"
 </section>
 
 <section class="section-padding">
-  <div class="grid grid-cols-1 gap-24 justify-center text-center max-w-[480px] md:max-w-[1060px] mx-auto md:grid-cols-4 md:text-left">
+  <div class="grid grid-cols-1 gap-24 justify-center max-w-[480px] md:max-w-[1060px] mx-auto md:grid-cols-4 md:text-left">
     {% for item in home.pillars %}
       {% assign classes = "flex flex-col gap-4 md:col-span-2" %}
 
@@ -56,11 +59,11 @@ script: "home"
       {% endif %}
 
       <div class="{{ classes }}">
-        <div class="flex justify-center md:justify-start">
+        <div class="flex">
           {% render "partials/image"
             , image: item.icon
             , sizes: "72px"
-            , classes: "h-[72px] w-auto" %}
+            , classes: "h-[96px] w-auto" %}
         </div>
         <h3 class="font-medium font-serif text-h5 text-coffee">{{ item.headline | asText }}</h3>
         <p class="text-dark-olive xsm:text-p">{{ item.content }}</p>

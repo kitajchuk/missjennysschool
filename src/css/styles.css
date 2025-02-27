@@ -91,7 +91,7 @@
     /* default width */
     --rotator-mask-width: auto;
     width: var(--rotator-mask-width);
-    @apply relative overflow-hidden flex flex-col whitespace-nowrap transition-[width] duration-200;
+    @apply relative overflow-hidden flex flex-col whitespace-nowrap transition-[width] duration-300;
   }
 
   .rotator {
@@ -99,7 +99,7 @@
   }
 
   .rotator-item {
-    @apply font-bold italic text-left pl-6 pr-4 transition-all duration-200 motion-reduce:transition-none;
+    @apply font-bold italic text-left pl-6 pr-4 transition-all duration-300 motion-reduce:transition-none;
   }
 
   .rotator-item-current {

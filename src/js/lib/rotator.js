@@ -12,6 +12,13 @@ import { getIntersectionObserver } from "./observer";
     onNewCycle: changeText,
   });
 
+  function setMaskWidth(item) {
+    rotatorMask.style.setProperty(
+      "--rotator-mask-width",
+      `${item.offsetWidth}px`,
+    );
+  }
+
   function changeText(currIndex) {
     const outItem = items[currIndex];
     const itemStyles = getComputedStyle(outItem);
@@ -24,10 +31,7 @@ import { getIntersectionObserver } from "./observer";
     const inItem = items[nextIndex];
     inItem.classList.add("rotator-item-staged-enter");
     inItem.setAttribute("aria-hidden", "false");
-    rotatorMask.style.setProperty(
-      "--rotator-mask-width",
-      `${inItem.offsetWidth}px`,
-    );
+    setMaskWidth(inItem);
 
     setTimeout(() => {
       inItem.classList.add("rotator-item-current");
@@ -44,6 +48,7 @@ import { getIntersectionObserver } from "./observer";
   }
 
   function init() {
+    setMaskWidth(items[0]);
     startInterval();
 
     getIntersectionObserver({

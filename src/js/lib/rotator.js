@@ -1,4 +1,5 @@
 import { getLifecycle } from "./lifecycle";
+import { getTransitionDuration } from "./styles";
 import { getIntersectionObserver } from "./observer";
 
 (() => {
@@ -22,9 +23,7 @@ import { getIntersectionObserver } from "./observer";
 
   function changeText(currIndex) {
     const outItem = items[currIndex];
-    const itemStyles = getComputedStyle(outItem);
-    const itemAnimDuration = itemStyles.transitionDuration;
-    const itemAnimDurationMs = itemAnimDuration.replace("s", "") * 1000;
+    const itemAnimDurationMs = getTransitionDuration(outItem);
 
     outItem.classList.add("rotator-item-staged-exit");
     outItem.setAttribute("aria-hidden", "true");

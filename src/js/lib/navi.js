@@ -1,5 +1,8 @@
+import { getPropertyValue, getTransitionDuration } from "./styles";
+
 (() => {
   let isOpen = false;
+  const root = document.documentElement;
   const navi = document.getElementById("navi");
   const naviMenu = document.getElementById("navi-menu");
   const naviArrow = document.getElementById("navi-arrow");
@@ -20,9 +23,6 @@
   }
 
   function closeNavi(withAnimation = true) {
-    const menuStyles = getComputedStyle(naviMenu);
-    const menuAnimDuration = menuStyles.transitionDuration;
-    const menuAnimDurationMs = menuAnimDuration.replace("s", "") * 1000;
     const removeClasses = withAnimation
       ? [...showClasses]
       : [...showClasses, ...animClasses];
@@ -34,6 +34,7 @@
     naviMenu.classList.add(...hideClasses);
 
     if (withAnimation) {
+      const menuAnimDurationMs = getTransitionDuration(naviMenu);
       setTimeout(() => {
         naviMenu.classList.remove(...animClasses);
       }, menuAnimDurationMs);
@@ -50,9 +51,7 @@
     }
   });
 
-  const root = document.documentElement;
-  const rootStyles = getComputedStyle(root);
-  const breakpointSm = rootStyles.getPropertyValue("--breakpoint-sm");
+  const breakpointSm = getPropertyValue(root, "--breakpoint-sm");
   const mediaQuery = window.matchMedia(`(min-width: ${breakpointSm})`);
 
   mediaQuery.addEventListener("change", (e) => {

@@ -15,3 +15,7 @@ environment = { NODE_VERSION = "18.17.0" }
 
 [context.branch-deploy]
 environment = { NODE_VERSION = "18.17.0" }
+
+[[edge_functions]]
+function = "contact-submit"
+path = "/contact-submit"

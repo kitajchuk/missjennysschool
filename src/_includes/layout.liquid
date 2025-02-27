@@ -40,5 +40,8 @@
     </footer>
     {% assign js_script = script | default: "index" %}
     <script type="module" src="/js/{{ js_script }}.js"></script>
+    {% if deferred_script %}
+      <script src="{{ deferred_script }}" defer></script>
+    {% endif %}
   </body>
 </html>

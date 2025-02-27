@@ -1,4 +1,4 @@
-import { getPropertyValue, getTransitionDuration } from "./styles";
+import { getPropertyValue, getTransitionDuration } from "../util/styles";
 
 (() => {
   let isOpen = false;

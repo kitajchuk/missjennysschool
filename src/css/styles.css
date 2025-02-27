@@ -56,6 +56,9 @@
 }
 
 @layer base {
+  h1 {
+    @apply leading-[1.25];
+  }
 }
 
 @layer components {
@@ -129,6 +132,10 @@
   }
 
   /* Text Rotator */
+  .rotator {
+    @apply flex flex-col xsm:flex-row items-center justify-center w-full text-h1 text-white;
+  }
+
   .rotator-mask {
     /* default width */
     --rotator-mask-width: auto;
@@ -143,17 +150,12 @@
       motion-reduce:transition-none;
   }
 
-  .rotator {
-    @apply flex items-center justify-center w-full text-h1 text-white;
-  }
-
   .rotator-item {
     @apply font-bold
       italic
       text-left
-      pl-4
-      md:pl-6
-      pr-4
+      px-4
+      xsm:pl-6
       transition-all
       duration-300
       motion-reduce:transition-none;

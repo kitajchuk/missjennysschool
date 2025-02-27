@@ -1,5 +1,5 @@
-import { getLifecycle } from "./lifecycle";
-import { getIntersectionObserver } from "./observer";
+import { getLifecycle } from "../util/lifecycle";
+import { getIntersectionObserver } from "../util/observer";
 
 (() => {
   const gallery = document.getElementById("gallery");

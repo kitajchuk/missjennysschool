@@ -1,6 +1,6 @@
-import { getLifecycle } from "./lifecycle";
-import { getTransitionDuration } from "./styles";
-import { getIntersectionObserver } from "./observer";
+import { getLifecycle } from "../util/lifecycle";
+import { getTransitionDuration } from "../util/styles";
+import { getIntersectionObserver } from "../util/observer";
 
 (() => {
   const rotator = document.getElementById("rotator");
@@ -48,11 +48,19 @@ import { getIntersectionObserver } from "./observer";
   }
 
   function init() {
-    setMaskWidth(items[0]);
+    let initialized = false;
 
     getIntersectionObserver({
       element: rotator,
-      onIntersect: startInterval,
+      onIntersect: () => {
+        if (!initialized) {
+          initialized = true;
+          setMaskWidth(items[0]);
+          startInterval();
+        } else {
+          startInterval();
+        }
+      },
       onUnintersect: stopInterval,
     });
 

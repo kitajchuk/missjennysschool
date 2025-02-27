@@ -19,35 +19,12 @@ script: "home"
   <h2 class="font-serif text-h5 text-center text-dark-olive w-[53.333vw] max-w-[768px] max-[975px]:w-full max-[975px]:max-w-[560px]">
     {{ home.description }}
   </h2>
-  <p class="font-serif text-h5 text-center text-dark-olive max-w-[200px] xsm:max-w-full">Learn more about
-    <a href="/about/" class="text-copper hover:text-caramel border-b">Miss Jenny&rsquo;s School</a>.
-  </p>
+  <a href="/about/" class="block px-6 py-2 rounded-lg xsm:text-p text-center text-white bg-copper hover:bg-beaver transition-colors border border-beaver">
+    Learn more
+  </a>
 </section>
 
-<section class="section-padding bg-dark-olive">
-  <div class="grid grid-cols-1 gap-24 justify-center text-center max-w-[480px] md:max-w-[1060px] mx-auto md:grid-cols-4 md:text-left">
-    {% for item in home.pillars %}
-      {% assign classes = "flex flex-col gap-4 md:col-span-2" %}
-
-      {% if forloop.last %}
-        {% assign classes = classes | append: " md:col-start-2" %}
-      {% endif %}
-
-      <div class="{{ classes }}">
-        <div class="flex justify-center md:justify-start">
-          {% render "partials/image"
-            , image: item.icon
-            , sizes: "72px"
-            , classes: "h-[72px] w-auto" %}
-        </div>
-        <h3 class="font-medium font-serif text-h5 text-sage">{{ item.headline | asText }}</h3>
-        <p class="text-cream">{{ item.content }}</p>
-      </div>
-    {% endfor %}
-  </div>
-</section>
-
-<section class="px-4 sm:px-8 flex items-center justify-center select-none h-[80vw] xsm:h-[60vw] md:h-[34.72vw]">
+<section class="rainbow-gradient border-t border-b border-silver px-4 sm:px-8 flex items-center justify-center select-none h-[80vw] xsm:h-[60vw] md:h-[34.72vw]">
   <div id="rotator" class="rotator">
     <span>You</span>
     <div id="rotator-mask" class="rotator-mask">
@@ -66,5 +43,28 @@ script: "home"
         </span>
       {% endfor %}
     </div>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="grid grid-cols-1 gap-24 justify-center text-center max-w-[480px] md:max-w-[1060px] mx-auto md:grid-cols-4 md:text-left">
+    {% for item in home.pillars %}
+      {% assign classes = "flex flex-col gap-4 md:col-span-2" %}
+
+      {% if forloop.last %}
+        {% assign classes = classes | append: " md:col-start-2" %}
+      {% endif %}
+
+      <div class="{{ classes }}">
+        <div class="flex justify-center md:justify-start">
+          {% render "partials/image"
+            , image: item.icon
+            , sizes: "72px"
+            , classes: "h-[72px] w-auto" %}
+        </div>
+        <h3 class="font-medium font-serif text-h5 text-coffee">{{ item.headline | asText }}</h3>
+        <p class="text-dark-olive xsm:text-p">{{ item.content }}</p>
+      </div>
+    {% endfor %}
   </div>
 </section>

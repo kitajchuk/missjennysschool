@@ -31,6 +31,7 @@
   --font-serif: "Kiwi Maru", serif;
 
   /* Typescale */
+  --text-p: 1.0625rem;
   --text-h1-max: 4rem;
   --text-h2-max: 3.052rem;
   --text-h3-max: 2.441rem;
@@ -94,11 +95,11 @@
   }
 
   .rotator {
-    @apply flex items-center justify-center w-full text-h1 text-copper;
+    @apply flex items-center justify-center w-full text-h1 text-white;
   }
 
   .rotator-item {
-    @apply text-mocha font-bold italic text-left pl-4 transition-all duration-200 motion-reduce:transition-none;
+    @apply font-bold italic text-left pl-6 pr-4 transition-all duration-200 motion-reduce:transition-none;
   }
 
   .rotator-item-current {
@@ -175,5 +176,18 @@
 
   .shadow-text {
     text-shadow: 0 4px 8px var(--color-coffee);
+  }
+
+  .rainbow-gradient {
+    background: linear-gradient(
+      to left,
+      #aba1ba 0%,
+      #c0c8d2 17%,
+      #c2c3a1 33%,
+      #e7c58d 50%,
+      #f0b179 67%,
+      #dba386 83%,
+      #e9b5a9 100%
+    );
   }
 }

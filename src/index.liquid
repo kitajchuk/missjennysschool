@@ -19,12 +19,9 @@ script: "home"
   <h2 class="font-serif text-h5 text-center text-dark-olive w-[53.333vw] max-w-[768px] max-[975px]:w-full max-[975px]:max-w-[560px]">
     {{ home.description }}
   </h2>
-  <a
-    href="/about/"
-    class="block px-6 py-2 rounded-lg bg-copper hover:bg-caramel transition-colors text-center text-white"
-    aria-label="Learn more about Miss Jenny's School">
-    Learn more
-  </a>
+  <p class="font-serif text-h5 text-center text-dark-olive max-w-[200px] xsm:max-w-full">Learn more about
+    <a href="/about/" class="text-copper hover:text-caramel border-b">Miss Jenny&rsquo;s School</a>.
+  </p>
 </section>
 
 <section class="section-padding bg-dark-olive">
@@ -50,6 +47,24 @@ script: "home"
   </div>
 </section>
 
-<section class="section-padding">
-  <p class="text-dark-olive text-center">[Values]</p>
+<section class="px-4 sm:px-8 flex items-center justify-center select-none h-[80vw] xsm:h-[60vw] md:h-[34.72vw]">
+  <div id="rotator" class="rotator">
+    <span>You</span>
+    <div id="rotator-mask" class="rotator-mask">
+      {% for item in home.values %}
+        {% assign classes = "rotator-item" %}
+        {% assign split_value = item.value | asText | split: "You " %}
+
+        {% if forloop.first %}
+          {% assign classes = classes | append: " rotator-item-current" %}
+        {% else %}
+          {% assign classes = classes | append: " rotator-item-staged" %}
+        {% endif %}
+
+        <span class="{{ classes }}" aria-hidden="{{ forloop.first == false }}">
+          {{ split_value[1] }}
+        </span>
+      {% endfor %}
+    </div>
+  </div>
 </section>

@@ -1,23 +1,20 @@
-{% assign item_classes = "absolute z-1 w-full h-full top-0 left-0 object-cover" %}
-
 <section id="gallery" class="hero">
   <div class="absolute z-1 w-full h-full top-0 left-0">
     {% for item in gallery %}
       {% assign loading = "lazy" %}
       {% assign alt = "Hero image for Miss Jenny's School" %}
-      {% assign classes = item_classes %}
+      {% assign classes = "gallery-item" %}
       {% assign jslazy = false %}
 
       {% if forloop.first %}
         {% assign loading = "eager" %}
+        {% assign classes = classes | append: " gallery-item-current" %}
       {% endif %}
 
       {% if forloop.index != 1 %}
-        {% assign classes = classes | append: " opacity-0" %}
+        {% assign classes = classes | append: " gallery-item-staged" %}
         {% assign jslazy = true %}
       {% endif %}
-
-      {% assign classes = classes | append: " transition-opacity ease-in-out duration-1000 motion-reduce:transition-none" %}
 
       {% render "partials/image"
         , alt: alt

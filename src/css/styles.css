@@ -58,13 +58,63 @@
 }
 
 @layer components {
-  .home {
+  /* .home {
     --bg-y: 0;
-    /* background-image: url("/assets/music-notes.png"); */
+    background-image: url("/assets/music-notes.png");
     background-size: 500px 500px;
     background-position: center var(--bg-y);
     background-repeat: repeat;
     background-attachment: fixed;
+  } */
+
+  /* Hero */
+  .hero {
+    @apply relative overflow-hidden px-4 sm:px-8 flex items-center justify-center h-[100vw] xsm:h-[80vw] md:h-[60vw] lg:h-[42vw];
+  }
+
+  /* Gallery */
+  .gallery-item {
+    @apply absolute z-1 w-full h-full top-0 left-0 object-cover transition-opacity ease-in-out duration-1000 motion-reduce:transition-none;
+  }
+
+  .gallery-item-current {
+    @apply opacity-100;
+  }
+
+  .gallery-item-staged {
+    @apply opacity-0;
+  }
+
+  /* Text Rotator */
+  .rotator-mask {
+    /* default width */
+    --rotator-mask-width: auto;
+    width: var(--rotator-mask-width);
+    @apply relative overflow-hidden flex flex-col whitespace-nowrap transition-[width] duration-200;
+  }
+
+  .rotator {
+    @apply flex items-center justify-center w-full text-h1 text-copper;
+  }
+
+  .rotator-item {
+    @apply text-mocha font-bold italic text-left pl-4 transition-all duration-200 motion-reduce:transition-none;
+  }
+
+  .rotator-item-current {
+    @apply relative ease-out opacity-100;
+  }
+
+  .rotator-item-staged {
+    @apply absolute ease-in top-0 left-0 translate-y-[20px] opacity-0;
+  }
+
+  .rotator-item-staged-enter {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .rotator-item-staged-exit {
+    @apply -translate-y-[20px] opacity-0;
   }
 
   /* Used for embeds: src/_includes/templates/embed.liquid */
@@ -115,10 +165,6 @@
     ol {
       @apply list-decimal ml-4;
     }
-  }
-
-  .hero {
-    @apply relative overflow-hidden px-4 sm:px-8 flex items-center justify-center h-[100vw] xsm:h-[80vw] md:h-[60vw] lg:h-[42vw];
   }
 }
 

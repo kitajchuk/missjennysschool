@@ -1,30 +1,25 @@
+import { getLifecycle } from "./lifecycle";
+import { getIntersectionObserver } from "./observer";
+
 (() => {
-  let index = 0;
-  let interval = null;
   const gallery = document.getElementById("gallery");
   const images = gallery?.querySelectorAll("img");
   const lazyImages = gallery?.querySelectorAll("img[data-src]");
 
-  function updateIndex() {
-    index = (index + 1) % images.length;
-  }
+  const { startInterval, stopInterval, updateIndex } = getLifecycle({
+    cycleLength: images.length,
+    cycleInterval: 6000,
+    onNewCycle: changeImage,
+  });
 
-  function changeImage() {
-    images[index].classList.add("opacity-0");
-    images[index].setAttribute("aria-hidden", "true");
-    updateIndex();
-    images[index].classList.remove("opacity-0");
-    images[index].setAttribute("aria-hidden", "false");
-  }
-
-  function startInterval() {
-    stopInterval();
-    interval = setInterval(changeImage, 6000);
-  }
-
-  function stopInterval() {
-    clearInterval(interval);
-    interval = null;
+  function changeImage(currIndex) {
+    images[currIndex].classList.add("gallery-item-staged");
+    images[currIndex].classList.remove("gallery-item-current");
+    images[currIndex].setAttribute("aria-hidden", "true");
+    const nextIndex = updateIndex();
+    images[nextIndex].classList.add("gallery-item-current");
+    images[nextIndex].classList.remove("gallery-item-staged");
+    images[nextIndex].setAttribute("aria-hidden", "false");
   }
 
   function load() {
@@ -47,16 +42,11 @@
   function init() {
     startInterval();
 
-    const intersectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          startInterval();
-        } else {
-          stopInterval();
-        }
-      });
+    getIntersectionObserver({
+      element: gallery,
+      onIntersect: startInterval,
+      onUnintersect: stopInterval,
     });
-    intersectionObserver.observe(gallery);
   }
 
   if (gallery) {

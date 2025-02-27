@@ -40,8 +40,6 @@ import { getIntersectionObserver } from "./observer";
   }
 
   function init() {
-    startInterval();
-
     getIntersectionObserver({
       element: gallery,
       onIntersect: startInterval,

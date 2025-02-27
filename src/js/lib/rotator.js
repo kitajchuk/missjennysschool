@@ -49,7 +49,6 @@ import { getIntersectionObserver } from "./observer";
 
   function init() {
     setMaskWidth(items[0]);
-    startInterval();
 
     getIntersectionObserver({
       element: rotator,

@@ -132,7 +132,7 @@
   .rotator-mask {
     /* default width */
     --rotator-mask-width: auto;
-    @apply w-[--rotator-mask-width]
+    @apply w-(--rotator-mask-width)
       relative
       overflow-hidden
       flex

@@ -31,6 +31,8 @@ import "./common";
 
   function handleError(/*cause*/) {
     resetTurnstile();
+    button.textContent = "Send";
+    button.removeAttribute("disabled");
     error.classList.remove("hidden");
   }
 
@@ -44,6 +46,7 @@ import "./common";
     resetTurnstile();
     success.classList.add("hidden");
     error.classList.add("hidden");
+    button.textContent = "Send";
     button.setAttribute("disabled", "disabled");
     name.value = "";
     email.value = "";
@@ -58,6 +61,9 @@ import "./common";
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
+
+    button.setAttribute("disabled", "disabled");
+    button.textContent = "Sending...";
 
     try {
       const response = await fetch("/contact-submit", {

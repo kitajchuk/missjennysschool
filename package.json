@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "prepare": "husky",
-    "start": "npm run dev",
+    "start": "netlify dev",
     "predev": "rm -rf ./_site",
     "dev": "npx @11ty/eleventy --serve",
     "prebuild": "rm -rf ./_site",

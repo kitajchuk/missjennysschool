@@ -9,59 +9,67 @@ deferred_script: https://challenges.cloudflare.com/turnstile/v0/api.js?onload=on
 {% assign label_class = "w-fit text-h6 font-serif font-medium text-coffee" %}
 {% assign input_class = "border border-silver p-2 rounded-lg w-full text-base focus:outline-none focus:border-coffee" %}
 {% assign textarea_class = input_class | append: " min-h-32" %}
-{% assign button_class = "w-fit px-6 py-2 rounded-lg xsm:text-p text-center text-white bg-copper hover:bg-beaver transition-colors border border-beaver disabled:opacity-50 disabled:cursor-not-allowed" %}
+{% assign button_class = "w-fit px-6 py-2 rounded-lg xsm:text-p text-center text-white bg-slate hover:bg-dark-olive transition-colors border border-dark-olive disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate" %}
 
 <section class="cms text-center section-padding flex flex-col items-center justify-center gap-16 sm:gap-24">
   <h1 class="text-coffee">Contact</h1>
 
   <form
     id="contact-form"
-    class="flex flex-col gap-4 w-full max-w-lg mx-auto text-left"
+    class="w-full max-w-lg mx-auto text-left"
     method="POST">
-    <div class="flex flex-col gap-1">
-      <label for="name" class="{{ label_class }}">Name (required)</label>
-      <input
-        id="name"
-        class="{{ input_class }}"
-        required
-        placeholder="Your name"
-        type="text"
-        name="name" />
-    </div>
-    <div class="flex flex-col gap-1">
-      <label for="email" class="{{ label_class }}">Email (required)</label>
-      <input
-        id="email"
-        class="{{ input_class }}"
-        required
-        placeholder="Your email"
-        type="email"
-        name="email" />
-    </div>
-    <div class="flex flex-col gap-1">
-      <label for="children" class="{{ label_class }}">Child's name and age</label>
-      <textarea
-        id="children"
-        class="{{ textarea_class }}"
-        placeholder="Child's name and age"
-        name="children"></textarea>
-    </div>
-    <div class="flex flex-col gap-1">
-      <label for="message" class="{{ label_class }}">
-        Other information<br/>
-        <span class="text-sm text-dark-olive">(your general location, other questions etc.)</span>
-      </label>
-      <textarea
-        id="message"
-        class="{{ textarea_class }}"
-        placeholder="Other information"
-        name="message"></textarea>
-    </div>
+    <fieldset id="contact-fieldset" class="flex flex-col gap-4">
+      <div class="flex flex-col gap-1">
+        <label for="name" class="{{ label_class }}">Name (required)</label>
+        <input
+          id="name"
+          class="{{ input_class }}"
+          required
+          placeholder="Your name"
+          type="text"
+          name="name" />
+      </div>
+      <div class="flex flex-col gap-1">
+        <label for="email" class="{{ label_class }}">Email (required)</label>
+        <input
+          id="email"
+          class="{{ input_class }}"
+          required
+          placeholder="Your email"
+          type="email"
+          name="email" />
+      </div>
+      <div class="flex flex-col gap-1">
+        <label for="children" class="{{ label_class }}">Child's name and age</label>
+        <textarea
+          id="children"
+          class="{{ textarea_class }}"
+          placeholder="Child's name and age"
+          name="children"></textarea>
+      </div>
+      <div class="flex flex-col gap-1">
+        <label for="message" class="{{ label_class }}">
+          Other information<br/>
+          <span class="text-sm text-dark-olive">(your general location, other questions etc.)</span>
+        </label>
+        <textarea
+          id="message"
+          class="{{ textarea_class }}"
+          placeholder="Other information"
+          name="message"></textarea>
+      </div>
+      <button
+        id="contact-submit"
+        class="{{ button_class }}"
+        type="submit"
+        disabled>Submit</button>
+      <p id="contact-success" class="bg-sage text-white p-4 rounded-lg border border-dark-olive text-center hidden">
+        Sent! Thanks for writing. We&rsquo;ll get back to you soon.
+      </p>
+      <p id="contact-error" class="bg-copper text-white p-4 rounded-lg border border-beaver text-center hidden">
+        Sorry, something went wrong. Please try again.
+      </p>
+    </fieldset>
     <div id="cf-turnstile" data-sitekey="{{ turnstile.sitekey }}"></div>
-    <button
-      id="contact-submit"
-      class="{{ button_class }}"
-      type="submit"
-      disabled>Submit</button>
   </form>
 </section>

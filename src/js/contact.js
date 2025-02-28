@@ -1,29 +1,58 @@
 (() => {
+  let turnstileWidgetId = null;
   let turnstileSuccess = false;
 
   const form = document.getElementById("contact-form");
+  const error = document.getElementById("contact-error");
+  const success = document.getElementById("contact-success");
+  const button = document.getElementById("contact-submit");
   const widget = document.getElementById("cf-turnstile");
   const sitekey = widget.getAttribute("data-sitekey");
 
-  const button = document.getElementById("contact-submit");
   const name = document.getElementById("name");
   const email = document.getElementById("email");
   const children = document.getElementById("children");
   const message = document.getElementById("message");
 
-  const validate = () => {
+  function validate() {
     if (name.validity.valid && email.validity.valid && turnstileSuccess) {
       button.removeAttribute("disabled");
     } else {
       button.setAttribute("disabled", "disabled");
     }
-  };
+  }
+
+  function handleSuccess() {
+    resetForm();
+    success.classList.remove("hidden");
+  }
+
+  function handleError(/*cause*/) {
+    resetTurnstile();
+    error.classList.remove("hidden");
+  }
+
+  function resetTurnstile() {
+    if (turnstileWidgetId) {
+      turnstile.reset(turnstileWidgetId);
+    }
+  }
+
+  function resetForm() {
+    resetTurnstile();
+    success.classList.add("hidden");
+    error.classList.add("hidden");
+    button.setAttribute("disabled", "disabled");
+    name.value = "";
+    email.value = "";
+    children.value = "";
+    message.value = "";
+  }
 
   name.addEventListener("input", validate);
   email.addEventListener("input", validate);
   children.addEventListener("input", validate);
   message.addEventListener("input", validate);
-
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
@@ -34,16 +63,21 @@
         body: JSON.stringify(Object.fromEntries(formData)),
       });
       const data = await response.json();
-      // TODO: Success handling in UI
-      console.log({ data });
+
+      // Edge function will always throw an error if something goes wrong
+      // But we can still look for success here as a sanity check
+      if (data.success) {
+        handleSuccess();
+      } else {
+        handleError(["unknown"]);
+      }
     } catch (error) {
-      // TODO: Error handling in UI
-      console.error(error);
+      handleError(error.cause);
     }
   });
 
   window.onloadTurnstileCallback = function () {
-    turnstile.render(widget, {
+    turnstileWidgetId = turnstile.render(widget, {
       sitekey,
       callback: function (/*token*/) {
         turnstileSuccess = true;

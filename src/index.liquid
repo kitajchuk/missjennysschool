@@ -16,10 +16,10 @@ script: "home"
 {% endif %}
 
 <section class="section-padding flex flex-col items-center gap-12">
-  <h2 class="font-serif text-h5 text-center text-dark-olive w-[53.333vw] max-w-[768px] max-[975px]:w-full max-[975px]:max-w-[560px]">
+  <h2 class="font-serif font-medium text-h5 text-center w-[53.333vw] max-w-[768px] max-[975px]:w-full max-[975px]:max-w-[560px]">
     {{ home.description }}
   </h2>
-  <a href="/about/" class="block px-6 py-2 rounded-lg xsm:text-p text-center text-white bg-slate hover:bg-dark-olive transition-colors border border-dark-olive">
+  <a href="/about/" class="btn block">
     Learn more
   </a>
 </section>
@@ -66,7 +66,7 @@ script: "home"
             , classes: "h-[96px] w-auto" %}
         </div>
         <h3 class="font-medium font-serif text-h5 text-coffee">{{ item.headline | asText }}</h3>
-        <p class="text-dark-olive xsm:text-p">{{ item.content }}</p>
+        <p class="xsm:text-p">{{ item.content }}</p>
       </div>
     {% endfor %}
   </div>

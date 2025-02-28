@@ -1,5 +1,17 @@
+{% comment %}
+  Frontmatter variables:
+  - title: string (optional)
+  - slug: string
+  - script: string (optional)
+  - deferred_script: string (optional)
+
+  Global data variables:
+  - site: object (from prismic)
+  - navi: string[]
+{% endcomment %}
+
 <!doctype html>
-<html lang="en" class="{{ class }} bg-cream text-dark-olive">
+<html lang="en" class="bg-cream text-black-olive">
   <head>
     {% render "metadata"
       , site: site

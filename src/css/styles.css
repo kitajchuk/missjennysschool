@@ -12,6 +12,7 @@
   --color-warm-gray: #96958b;
   --color-sage: #bab792;
   --color-dark-olive: #686961;
+  --color-black-olive: #3d3d39;
   --color-pearl: #e5ddd5;
   --color-tan: #d3c5b0;
   --color-cream: #efe7cf;
@@ -70,6 +71,24 @@
     background-repeat: repeat;
     background-attachment: fixed;
   } */
+
+  /* Button */
+  .btn {
+    @apply px-6
+      py-2
+      rounded-lg
+      text-center
+      text-white
+      bg-slate
+      hover:bg-dark-olive
+      transition-colors
+      border
+      border-dark-olive
+      cursor-pointer
+      disabled:opacity-50
+      disabled:cursor-not-allowed
+      disabled:hover:bg-slate;
+  }
 
   /* Navi */
   .navi-menu {

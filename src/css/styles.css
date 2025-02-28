@@ -79,15 +79,11 @@
       rounded-lg
       text-center
       text-white
-      bg-slate
-      hover:bg-dark-olive
       transition-colors
       border
-      border-dark-olive
       cursor-pointer
       disabled:opacity-50
-      disabled:cursor-not-allowed
-      disabled:hover:bg-slate;
+      disabled:cursor-not-allowed;
   }
 
   /* Navi */

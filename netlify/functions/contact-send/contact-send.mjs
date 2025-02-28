@@ -58,6 +58,9 @@ export default async (request) => {
         user: SMTP_USERNAME,
         pass: SMTP_PASSWORD,
       },
+      tls: {
+        rejectUnauthorized: false,
+      }
     });
 
     const info = await transporter.sendMail({

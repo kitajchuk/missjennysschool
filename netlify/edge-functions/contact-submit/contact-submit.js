@@ -1,4 +1,4 @@
-import { SMTPClient } from "https://deno.land/x/denomailer/mod.ts";
+import { createTransport } from "npm:nodemailer";
 
 const TURNSTILE_SECRET_KEY = Deno.env.get("TURNSTILE_SECRET_KEY");
 const SMTP_USERNAME = Deno.env.get("SMTP_USERNAME");
@@ -48,24 +48,22 @@ export default async (request) => {
     const children = body.children;
     const message = body.message;
 
-    const client = new SMTPClient({
-      connection: {
-        hostname: "smtp.gmail.com",
-        port: 465,
-        tls: true,
-        auth: {
-          username: SMTP_USERNAME,
-          password: SMTP_PASSWORD,
-        },
+    const transporter = createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: SMTP_USERNAME,
+        pass: SMTP_PASSWORD,
       },
     });
 
-    await client.send({
+    const info = await transporter.sendMail({
       from: email,
       to: SMTP_USERNAME,
       replyTo: email,
       subject: "Re: MJS website contact",
-      content: `
+      text: `
 Name:
 ${name}
 
@@ -80,7 +78,7 @@ ${message}
 `,
     });
 
-    await client.close();
+    console.log("Message sent: %s", info.messageId);
 
     return Response.json({
       success: true,

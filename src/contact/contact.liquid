@@ -16,7 +16,7 @@ deferred_script: https://challenges.cloudflare.com/turnstile/v0/api.js?onload=on
   <form
     id="contact-form"
     class="w-full max-w-lg mx-auto text-left"
-    action="/contact-submit"
+    action="/.netlify/functions/contact-send"
     method="POST">
     <fieldset id="contact-fieldset" class="flex flex-col gap-4">
       <div class="flex flex-col gap-1">

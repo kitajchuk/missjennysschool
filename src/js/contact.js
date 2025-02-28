@@ -64,6 +64,8 @@ import "./common";
 
     button.setAttribute("disabled", "disabled");
     button.textContent = "Sending...";
+    success.classList.add("hidden");
+    error.classList.add("hidden");
 
     try {
       const response = await fetch("/contact-submit", {

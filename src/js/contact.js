@@ -68,7 +68,7 @@ import "./common";
     error.classList.add("hidden");
 
     try {
-      const response = await fetch("/contact-submit", {
+      const response = await fetch(form.action, {
         method: "POST",
         body: JSON.stringify(Object.fromEntries(formData)),
       });

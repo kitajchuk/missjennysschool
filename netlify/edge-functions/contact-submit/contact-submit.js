@@ -3,15 +3,10 @@ import { SMTPClient } from "https://deno.land/x/denomailer/mod.ts";
 const TURNSTILE_SECRET_KEY = Deno.env.get("TURNSTILE_SECRET_KEY");
 const SMTP_USERNAME = Deno.env.get("SMTP_USERNAME");
 const SMTP_PASSWORD = Deno.env.get("SMTP_PASSWORD");
-const SMTP_SEND_EMAIL = Deno.env.get("SMTP_SEND_EMAIL");
+const SMTP_ENABLED = Deno.env.get("SMTP_ENABLED");
 
 export default async (request) => {
   const body = await request.json();
-
-  const name = body.name;
-  const email = body.email;
-  const children = body.children;
-  const message = body.message;
   const token = body["cf-turnstile-response"];
 
   const formData = new FormData();
@@ -34,9 +29,10 @@ export default async (request) => {
     });
   }
 
-  if (SMTP_SEND_EMAIL === "false") {
+  if (SMTP_ENABLED === "false") {
     return Response.json({
       success: true,
+      smtp_enabled: false,
     });
   }
 
@@ -47,6 +43,11 @@ export default async (request) => {
   }
 
   try {
+    const name = body.name;
+    const email = body.email;
+    const children = body.children;
+    const message = body.message;
+
     const client = new SMTPClient({
       connection: {
         hostname: "smtp.gmail.com",

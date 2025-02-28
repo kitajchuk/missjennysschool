@@ -148,7 +148,7 @@
 
   /* Text Rotator */
   .rotator {
-    @apply flex flex-col xsm:flex-row items-center justify-center w-full text-h1 text-white;
+    @apply flex items-center justify-center w-full text-h1 text-white;
   }
 
   .rotator-mask {

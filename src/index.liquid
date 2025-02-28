@@ -29,7 +29,7 @@ script: "home"
     id="rotator"
     class="rotator"
     aria-label="{{ home.values[0].value | asText }}">
-    <span>You</span>
+    <div class="pl-4">You</div>
     <div id="rotator-mask" class="rotator-mask">
       {% for item in home.values %}
         {% assign classes = "rotator-item" %}

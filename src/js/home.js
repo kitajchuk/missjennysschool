@@ -1,5 +1,3 @@
-import "./lib/navi";
-import "./lib/date";
+import "./common";
 import "./lib/gallery";
 import "./lib/rotator";
-import "./lib/parallax";

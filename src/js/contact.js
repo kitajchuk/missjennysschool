@@ -1,3 +1,5 @@
+import "./common";
+
 (() => {
   let turnstileWidgetId = null;
   let turnstileSuccess = false;

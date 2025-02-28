@@ -38,7 +38,7 @@
         <span id="year">{{ "now" | date: "%Y" }}</span><br/>
         {{ site.title }}</p>
     </footer>
-    {% assign js_script = script | default: "index" %}
+    {% assign js_script = script | default: "common" %}
     <script type="module" src="/js/{{ js_script }}.js"></script>
     {% if deferred_script %}
       <script src="{{ deferred_script }}" defer></script>

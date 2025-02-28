@@ -63,6 +63,7 @@ export default async (request) => {
     await client.send({
       from: email,
       to: SMTP_USERNAME,
+      replyTo: email,
       subject: "Re: MJS website contact",
       content: `
 Name:

@@ -1,11 +1,7 @@
 import { createTransport } from "nodemailer";
 
-const {
-  TURNSTILE_SECRET_KEY,
-  SMTP_USERNAME,
-  SMTP_PASSWORD,
-  SMTP_ENABLED
-} = process.env;
+const { TURNSTILE_SECRET_KEY, SMTP_USERNAME, SMTP_PASSWORD, SMTP_ENABLED } =
+  process.env;
 
 export default async (request) => {
   const body = await request.json();
@@ -58,9 +54,6 @@ export default async (request) => {
         user: SMTP_USERNAME,
         pass: SMTP_PASSWORD,
       },
-      tls: {
-        rejectUnauthorized: false,
-      }
     });
 
     const info = await transporter.sendMail({

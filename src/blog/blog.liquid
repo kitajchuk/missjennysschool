@@ -3,13 +3,21 @@ layout: layout.liquid
 title: Blog
 ---
 
-<section class="cms text-center section-padding">
-  <h1 class="text-coffee">Blog</h1>
+<section class="section-padding flex flex-col gap-16">
+  <h1 class="text-coffee text-h1 font-serif font-medium text-center">Blog</h1>
 
-  <div class="flex flex-col gap-16 w-full max-w-xl mx-auto mt-16">
+  <div class="grid grid-cols-1 sm:grid-cols-[repeat(2,1fr)] lg:grid-cols-[repeat(3,1fr)] gap-8 justify-center max-w-[1440px] mx-auto">
     {% for post in posts %}
       <article>
-        <a class="text-dark-olive hover:text-black-olive transition-colors font-serif font-medium text-h4" href="/blog/{{ post.uid }}/">{{ post.data.title | asText }}</a>
+        <a class="text-dark-olive hover:text-black-olive transition-colors flex flex-col gap-4" href="/blog/{{ post.uid }}/">
+          {% if post.data.image.url %}
+            <div class="img aspect-video">
+              {% render "partials/image"
+                , image: post.data.image %}
+            </div>
+          {% endif %}
+          <h5 class="font-serif font-medium text-h5 text-coffee">{{ post.data.title | asText }}</h5>
+        </a>
       </article>
     {% endfor %}
   </div>

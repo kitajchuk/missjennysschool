@@ -10,10 +10,19 @@ eleventyComputed:
   title: "{{ post.data.title | asText }}"
 ---
 
-<article class="cms section-padding flex flex-col gap-16 w-full max-w-[768px] mx-auto">
-  <h1 class="text-coffee text-h2 w-full">{{ post.data.title | asText }}</h1>
-  <div class="w-full">
+<article class="flex flex-col">
+  {% if post.data.image.url %}
+    {% render "templates/hero"
+      , hero: post.data.image
+      , title: post.data.title %}
+  {% endif %}
+  <section class="{% if post.data.image.url %}article-padding{% else %}section-padding{% endif %} w-full max-w-[768px] mx-auto flex flex-col gap-16">
+    {% if post.data.image.url %}
+    {% else %}
+      <h1 class="text-coffee text-h2">{{ post.data.title | asText }}</h1>
+    {% endif %}
     {% render "partials/rich_text"
-      , body: post.data.content %}
-  </div>
+      , body: post.data.content
+      , center_text: post.data.center_text %}
+  </section>
 </article>

@@ -1,0 +1,20 @@
+---
+layout: layout.liquid
+pagination:
+  data: posts
+  size: 1
+  alias: post
+  addAllPagesToCollections: true
+permalink: "/blog/{{ post.uid }}/"
+title: Blog
+---
+
+<article class="cms section-padding flex flex-col gap-16">
+  <header class="max-w-xl mx-auto">
+    <h1 class="text-coffee">{{ post.data.title | asText }}</h1>
+  </header>
+  <div class="flex flex-col gap-16 max-w-xl mx-auto">
+    {% render "partials/rich_text.liquid"
+      , body: post.data.content %}
+  </div>
+</article>

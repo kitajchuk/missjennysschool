@@ -1,3 +1,5 @@
+{% assign slug = page.url | remove_first: "/" | remove_last: "/" | split: "/" | first %}
+
 <nav
   id="navi"
   aria-label="Main navigation"
@@ -5,7 +7,7 @@
   <a
     href="/"
     aria-label="Home"
-    {% if slug == "" %}
+    {% if page.url == "/" %}
     aria-current="page"
     {% endif %}
     class="block relative z-20">
@@ -30,7 +32,9 @@
             {% if slug == link %}
             aria-current="page"
             class="border-b border-inherit"
-            {% endif %}>{{ link | capitalize }}</a>
+            {% endif %}>
+            {{ link | capitalize }}
+          </a>
         </li>
       {% endfor %}
     </ul>

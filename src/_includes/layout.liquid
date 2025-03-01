@@ -1,7 +1,6 @@
 {% comment %}
   Frontmatter variables:
   - title: string (optional)
-  - slug: string
   - script: string (optional)
   - deferred_script: string (optional)
 
@@ -15,7 +14,8 @@
   <head>
     {% render "metadata"
       , site: site
-      , slug: slug %}
+      , page: page
+    %}
     <title>
       {% if title %}
         {{ title }} |
@@ -29,7 +29,7 @@
     <header class="px-4 py-4 sm:py-5 sm:px-8 flex justify-between items-center bg-white/90 sticky top-0 z-10 border-b border-silver">
       {% render "templates/navi"
         , site: site
-        , slug: slug
+        , page: page
         , navi: navi %}
     </header>
     <main>

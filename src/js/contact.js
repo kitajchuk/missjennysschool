@@ -91,6 +91,7 @@ import "./common";
       sitekey,
       callback: function (/*token*/) {
         turnstileSuccess = true;
+        validate();
       },
     });
   };

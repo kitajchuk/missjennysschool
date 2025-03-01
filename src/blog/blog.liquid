@@ -1,9 +1,16 @@
 ---
 layout: layout.liquid
 title: Blog
-slug: blog
 ---
 
 <section class="cms text-center section-padding">
-  <h1>Blog</h1>
+  <h1 class="text-coffee">Blog</h1>
+
+  <div class="flex flex-col gap-16 max-w-xl mx-auto mt-16">
+    {% for post in posts %}
+      <article>
+        <a class="text-dark-olive hover:text-black-olive transition-colors font-serif font-medium text-h4" href="/blog/{{ post.uid }}/">{{ post.data.title | asText }}</a>
+      </article>
+    {% endfor %}
+  </div>
 </section>

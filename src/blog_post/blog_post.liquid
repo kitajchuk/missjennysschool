@@ -6,7 +6,8 @@ pagination:
   alias: post
   addAllPagesToCollections: true
 permalink: "/blog/{{ post.uid }}/"
-title: Blog
+eleventyComputed:
+  title: "{{ post.data.title | asText }}"
 ---
 
 <article class="cms section-padding flex flex-col gap-16">

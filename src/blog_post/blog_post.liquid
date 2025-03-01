@@ -10,11 +10,9 @@ eleventyComputed:
   title: "{{ post.data.title | asText }}"
 ---
 
-<article class="cms section-padding flex flex-col gap-16">
-  <header class="w-full max-w-xl mx-auto">
-    <h1 class="text-coffee">{{ post.data.title | asText }}</h1>
-  </header>
-  <div class="w-full max-w-xl mx-auto">
+<article class="cms section-padding flex flex-col gap-16 w-full max-w-[768px] mx-auto">
+  <h1 class="text-coffee text-h2 w-full">{{ post.data.title | asText }}</h1>
+  <div class="w-full">
     {% render "partials/rich_text"
       , body: post.data.content %}
   </div>

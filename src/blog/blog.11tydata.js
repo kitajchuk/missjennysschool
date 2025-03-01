@@ -1,8 +1,7 @@
-import client from "../../lib/prismic.client.js";
+import { recursiveGetByType } from "../../lib/prismic.client.js";
 
 export default async function () {
-  const response = await client.getByType("blog_post", {
-    pageSize: 100,
+  const posts = await recursiveGetByType("blog_post", {
     orderings: [
       {
         field: "my.blog_post.published_date",
@@ -10,5 +9,5 @@ export default async function () {
       },
     ],
   });
-  return { posts: response.results };
+  return { posts };
 }

@@ -11,11 +11,11 @@ eleventyComputed:
 ---
 
 <article class="cms section-padding flex flex-col gap-16">
-  <header class="max-w-xl mx-auto">
+  <header class="w-full max-w-xl mx-auto">
     <h1 class="text-coffee">{{ post.data.title | asText }}</h1>
   </header>
-  <div class="flex flex-col gap-16 max-w-xl mx-auto">
-    {% render "partials/rich_text.liquid"
+  <div class="w-full max-w-xl mx-auto">
+    {% render "partials/rich_text"
       , body: post.data.content %}
   </div>
 </article>

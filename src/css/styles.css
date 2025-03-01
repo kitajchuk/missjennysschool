@@ -202,27 +202,27 @@
   /* Used for CMS content: src/_includes/templates/rich_text.liquid */
   .cms {
     h1 {
-      @apply text-h1 font-serif;
+      @apply text-h1 font-serif font-medium;
     }
 
     h2 {
-      @apply text-h2 font-serif;
+      @apply text-h2 font-serif font-medium;
     }
 
     h3 {
-      @apply text-h3 font-serif;
+      @apply text-h3 font-serif font-medium;
     }
 
     h4 {
-      @apply text-h4 font-serif;
+      @apply text-h4 font-serif font-medium;
     }
 
     h5 {
-      @apply text-h5 font-serif;
+      @apply text-h5 font-serif font-medium;
     }
 
     h6 {
-      @apply text-h6 font-serif;
+      @apply text-h6 font-serif font-medium;
     }
 
     p {

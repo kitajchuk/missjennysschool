@@ -226,7 +226,7 @@
     }
 
     p {
-      @apply font-sans text-base;
+      @apply font-sans text-p;
     }
 
     em {

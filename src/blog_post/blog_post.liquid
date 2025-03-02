@@ -12,15 +12,26 @@ eleventyComputed:
 
 <article class="flex flex-col">
   {% if post.data.image.url %}
-    {% render "templates/hero"
-      , hero: post.data.image
-      , title: post.data.title %}
+    <div class="masthead-padding text-left md:text-center">
+      <h1 class="text-coffee text-h1 font-serif font-medium">{{ post.data.title | asText }}</h1>
+    </div>
+    <div class="px-6 sm:px-8">
+      <div class="img aspect-video">
+        {% render "partials/image"
+          , image: post.data.image
+          , sizes: "100vw"
+          , loading: "eager"
+          , classes: "w-full h-full object-cover" %}
+      </div>
+    </div>
   {% endif %}
-  <section class="{% if post.data.image.url %}article-padding{% else %}section-padding{% endif %} w-full max-w-[768px] mx-auto flex flex-col gap-16">
-    {% if post.data.image.url %}
-    {% else %}
-      <h1 class="text-coffee text-h2">{{ post.data.title | asText }}</h1>
-    {% endif %}
+  {% if post.data.image.url %}
+  {% else %}
+    <div class="masthead-padding text-left md:text-center">
+      <h1 class="text-coffee text-h1 font-serif font-medium">{{ post.data.title | asText }}</h1>
+    </div>
+  {% endif %}
+  <section class="article-padding w-full max-w-[768px] mx-auto flex flex-col gap-16">
     {% render "partials/rich_text"
       , body: post.data.content
       , center_text: post.data.center_text %}

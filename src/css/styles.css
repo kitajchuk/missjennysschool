@@ -39,13 +39,15 @@
   --text-h4-max: 1.953rem;
   --text-h5-max: 1.563rem;
   --text-h6-max: 1.25rem;
-  --text-h1-min: 2.441rem;
+  --text-h1-min: 1.476rem;
+  --text-h1-min-lg: 2.441rem;
   --text-h2-min: 1.383rem;
   --text-h3-min: 1.296rem;
   --text-h4-min: 1.215rem;
   --text-h5-min: 1.138rem;
   --text-h6-min: 1.067rem;
   --text-h1: clamp(var(--text-h1-min), 4.444vw, var(--text-h1-max));
+  --text-h1-lg: clamp(var(--text-h1-min-lg), 4.444vw, var(--text-h1-max));
   --text-h2: clamp(var(--text-h2-min), 3.333vw, var(--text-h2-max));
   --text-h3: clamp(var(--text-h3-min), 2.708vw, var(--text-h3-max));
   --text-h4: clamp(var(--text-h4-min), 2.153vw, var(--text-h4-max));
@@ -120,8 +122,6 @@
       flex
       items-center
       justify-center
-      border-b
-      border-silver
       h-[100vw]
       xsm:h-[80vw]
       md:h-[60vw]
@@ -278,6 +278,10 @@
 
   .article-padding {
     @apply py-8 px-6 sm:py-16 sm:px-8;
+  }
+
+  .masthead-padding {
+    @apply pt-16 pb-8 px-6 sm:pt-24 sm:pb-16 sm:px-8;
   }
 
   .rainbow-gradient {

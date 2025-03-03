@@ -1,6 +1,5 @@
 {% assign rich_text = body | asHTML %}
-{% assign center_text = center_text | default: false %}
 
-<div class="cms flex flex-col {% if center_text %} cms-centered text-center{% else %} text-left{% endif %}">
+<div class="cms flex flex-col text-left">
   {{ rich_text }}
 </div>

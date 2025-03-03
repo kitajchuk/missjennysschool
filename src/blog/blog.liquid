@@ -3,16 +3,37 @@ layout: layout.liquid
 title: Blog
 ---
 
-<section class="section-padding flex flex-col gap-16">
-  <h1 class="text-coffee text-h1 font-serif font-medium text-center">Blog</h1>
+<section class="section-padding flex flex-col gap-16 sm:gap-24 justify-center">
+  <h1 class="text-coffee text-h1 font-serif font-medium text-center">
+    Miss Jenny&rsquo;s<br/>Blog
+  </h1>
 
-  <div class="flex flex-col gap-8 justify-center max-w-xl mx-auto text-center">
-    {% for post in posts %}
-      <article>
-        <a class="text-dark-olive hover:text-black-olive transition-colors" href="/blog/{{ post.uid }}/">
-          <h5 class="font-serif font-medium text-h5">{{ post.data.title | asText }}</h5>
+  <div role="separator" class="w-full max-w-[320px] mx-auto h-[1px] bg-silver"></div>
+
+  {% for post in posts %}
+    <article class="text-center w-full max-w-[1440px] mx-auto{% if post.data.image.url %} relative section-padding{% endif %}">
+      {% if post.data.image.url %}
+        <div class="img absolute w-full h-full inset-0">
+          {% render "partials/image"
+            , image: post.data.image
+            , sizes: "100vw"
+            , classes: "absolute w-full h-full inset-0 object-cover" %}
+          <div class="absolute top-0 left-0 w-full h-full bg-coffee/40" aria-hidden="true"></div>
+        </div>
+      {% endif %}
+
+      <div class="relative">
+        <time datetime="{{ post.data.published_date | asDate }}" class="{% if post.data.image.url %}text-white shadow-text{% else %}text-dark-olive{% endif %} text-base sm:text-p">
+          {{ post.data.published_date | asDate }}
+        </time>
+        <div class="{% if post.data.image.url %}text-white shadow-text{% else %}text-coffee{% endif %} text-h3 font-serif font-medium mb-6">
+          {{ post.data.title | asHTML }}
+        </div>
+        <a href="/blog/{{ post.uid }}/" class="text-p italic inline-flex items-center gap-2 transition-colors motion-reduce:transition-none{% if post.data.image.url %} text-white shadow-text{% else %} text-copper{% endif %}">
+          <span>Read this blog post</span>
+          {% render "svg/east_arrow" %}
         </a>
-      </article>
-    {% endfor %}
-  </div>
+      </div>
+    </article>
+  {% endfor %}
 </section>

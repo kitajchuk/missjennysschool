@@ -32,6 +32,8 @@
             {% if slug == link %}
             aria-current="page"
             class="border-b border-inherit"
+            {% else %}
+            class="hover:text-mocha transition-colors motion-reduce:transition-none"
             {% endif %}>
             {{ link | capitalize }}
           </a>

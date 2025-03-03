@@ -14,7 +14,7 @@ export default async function () {
     posts,
     eleventyComputed: {
       title: (data) => asText(data.post.data.title),
-      related_posts: (data) =>
+      recent_posts: (data) =>
         data.posts.filter((post) => post.uid !== data.post.uid).slice(0, 3),
     },
   };

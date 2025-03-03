@@ -13,7 +13,7 @@ permalink: "/blog/{{ post.uid }}/"
     <time datetime="{{ post.data.published_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
       {{ post.data.published_date | asDate }}
     </time>
-    <h1 class="text-coffee text-h2 font-serif font-medium">{{ post.data.title | asText }}</h1>
+    <h1 class="text-coffee text-h1 font-serif font-medium">{{ post.data.title | asText }}</h1>
   </header>
   <section class="">
     {% if post.data.image.url %}

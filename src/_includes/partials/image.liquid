@@ -5,6 +5,12 @@
 {% assign img_classes = classes | default: "" %}
 {% assign img_jslazy = jslazy | default: false %}
 
+{% if image.linkTo %}
+  <a
+    href="{{ image.linkTo.url }}"
+    target="_blank"
+    rel="noopener noreferrer">
+{% endif %}
 <img
   {% if img_jslazy %}
   data-src="{{ img_set.src }}"
@@ -21,3 +27,6 @@
   {% if img_classes %}
   class="{{ img_classes }}"
   {% endif %} />
+{% if image.linkTo %}
+  </a>
+{% endif %}

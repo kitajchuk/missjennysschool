@@ -6,34 +6,62 @@ pagination:
   alias: post
   addAllPagesToCollections: true
 permalink: "/blog/{{ post.uid }}/"
-eleventyComputed:
-  title: "{{ post.data.title | asText }}"
 ---
 
-<article class="flex flex-col">
-  {% if post.data.image.url %}
-    <div class="masthead-padding text-left md:text-center">
-      <h1 class="text-coffee text-h1 font-serif font-medium">{{ post.data.title | asText }}</h1>
-    </div>
-    <div class="px-6 sm:px-8">
-      <div class="img aspect-video">
+<article class="section-padding justify-center text-left grid grid-cols-1 article-sm:grid-cols-[2fr_1fr] article-sm:grid-rows-[auto_auto] article-sm:gap-x-16 article-lg:gap-x-24 article-lg:grid-cols-[640px_320px]">
+  <header class="flex flex-col pb-8 sm:pb-16 article-sm:col-span-2 article-sm:col-start-1">
+    <time datetime="{{ post.data.published_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
+      {{ post.data.published_date | asDate }}
+    </time>
+    <h1 class="text-coffee text-h2 font-serif font-medium">{{ post.data.title | asText }}</h1>
+  </header>
+  <section class="">
+    {% if post.data.image.url %}
+      <div class="img mb-8">
         {% render "partials/image"
           , image: post.data.image
-          , sizes: "100vw"
+          , sizes: "(max-width: 768px) 100vw, 640px"
           , loading: "eager"
-          , classes: "w-full h-full object-cover" %}
+          , classes: "" %}
       </div>
-    </div>
-  {% endif %}
-  {% if post.data.image.url %}
-  {% else %}
-    <div class="masthead-padding text-left md:text-center">
-      <h1 class="text-coffee text-h1 font-serif font-medium">{{ post.data.title | asText }}</h1>
-    </div>
-  {% endif %}
-  <section class="article-padding w-full max-w-[768px] mx-auto flex flex-col gap-16">
+    {% endif %}
     {% render "partials/rich_text"
       , body: post.data.content
       , center_text: post.data.center_text %}
+    <div class="flex justify-between items-center border-y border-silver py-4 mt-16 article-sm:mt-24">
+      {% if pagination.page.previous %}
+        <a href="/blog/{{ pagination.page.previous.uid }}/" class="arrow-link">
+          <div class="transform rotate-180">
+            {% render "svg/east_arrow" %}
+          </div>
+          <span>Previous</span>
+        </a>
+      {% endif %}
+      {% if pagination.page.next %}
+        <a href="/blog/{{ pagination.page.next.uid }}/" class="ml-auto arrow-link">
+          <span>Next</span>
+          {% render "svg/east_arrow" %}
+        </a>
+      {% endif %}
+    </div>
   </section>
+  <aside class="mt-16 article-sm:mt-0">
+    <h6 class="text-mocha text-h6 font-serif font-medium">Related Posts</h6>
+    <div class="flex flex-col gap-16 mt-8">
+      {% for post in related_posts %}
+        <article>
+          <time datetime="{{ post.data.published_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
+            {{ post.data.published_date | asDate }}
+          </time>
+          <h6 class="text-h6 text-coffee font-serif font-medium mb-4">
+            {{ post.data.title | asText }}
+          </h6>
+          <a href="/blog/{{ post.uid }}/" class="arrow-link text-base">
+            <span>Read this blog post</span>
+            {% render "svg/east_arrow" %}
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </aside>
 </article>

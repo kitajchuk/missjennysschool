@@ -56,6 +56,8 @@
 
   /* Breakpoints */
   --breakpoint-xsm: 30rem;
+  --breakpoint-article-lg: 1124px;
+  --breakpoint-article-sm: 768px;
 }
 
 @layer base {
@@ -77,6 +79,17 @@
   /* Image */
   .img {
     @apply border border-dark-olive rounded-lg overflow-hidden;
+  }
+
+  /* Links */
+  .arrow-link {
+    @apply italic
+      inline-flex
+      items-center
+      gap-2
+      transition-colors
+      motion-reduce:transition-none
+      text-copper;
   }
 
   /* Button */
@@ -219,28 +232,32 @@
       @apply mt-0;
     }
 
+    .img-half {
+      @apply max-w-[50%];
+    }
+
     h1 {
-      @apply text-h1 font-serif font-medium;
+      @apply text-h1 font-serif font-medium text-coffee;
     }
 
     h2 {
-      @apply text-h2 font-serif font-medium;
+      @apply text-h2 font-serif font-medium text-coffee;
     }
 
     h3 {
-      @apply text-h3 font-serif font-medium;
+      @apply text-h3 font-serif font-medium text-coffee;
     }
 
     h4 {
-      @apply text-h4 font-serif font-medium;
+      @apply text-h4 font-serif font-medium text-coffee;
     }
 
     h5 {
-      @apply text-h5 font-serif font-medium;
+      @apply text-h5 font-serif font-medium text-coffee;
     }
 
     h6 {
-      @apply text-h6 font-serif font-medium;
+      @apply text-h6 font-serif font-medium text-coffee;
     }
 
     p {

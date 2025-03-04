@@ -1,16 +1,18 @@
 ---
 layout: layout.liquid
 title: Blog
+pagination:
+  data: posts
+  size: 10
+permalink: "blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
 ---
 
 <section class="section-padding flex flex-col gap-16 sm:gap-24 justify-center">
   <h1 class="text-coffee text-h1-lg font-serif font-medium text-center">
     Miss Jenny&rsquo;s<br/>Blog
   </h1>
-
   <div role="separator" class="w-full max-w-[320px] mx-auto h-[1px] bg-silver"></div>
-
-  {% for post in posts %}
+  {% for post in pagination.items %}
     <article class="text-center w-full max-w-[1440px] mx-auto{% if post.data.image.url %} relative section-padding{% endif %}">
       {% if post.data.image.url %}
         <div class="img absolute w-full h-full inset-0">
@@ -21,7 +23,6 @@ title: Blog
           <div class="absolute top-0 left-0 w-full h-full bg-coffee/40" aria-hidden="true"></div>
         </div>
       {% endif %}
-
       <a href="/blog/{{ post.uid }}/" class="relative inline-flex flex-col items-center">
         <time datetime="{{ post.data.published_date | asDate }}" class="{% if post.data.image.url %}text-white shadow-text{% else %}text-dark-olive{% endif %} text-sm sm:text-base">
           {{ post.data.published_date | asDate }}
@@ -36,4 +37,6 @@ title: Blog
       </a>
     </article>
   {% endfor %}
+  {% render "templates/pagination"
+    , pagination: pagination %}
 </section>

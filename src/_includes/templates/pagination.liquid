@@ -1,0 +1,44 @@
+{% assign page_count = pagination.hrefs | size %}
+{% assign page_classes = "w-6 h-6 flex items-center justify-center text-p rounded-sm leading-none border border-mocha" %}
+{% if page_count > 1 %}
+  <div class="mt-12 flex flex-col gap-6">
+    <div role="separator" class="w-full max-w-[320px] mx-auto h-[1px] bg-silver"></div>
+    <ul class="flex justify-center gap-2">
+      {% if pagination.href.previous %}
+        <li>
+          <a
+            href="{{ pagination.href.previous }}"
+            aria-label="Previous page"
+            class="{{ page_classes }} text-mocha">
+            <div class="transform rotate-180">
+              {% render "svg/chevron_right" %}
+            </div>
+          </a>
+        </li>
+      {% endif %}
+      {% for page in pagination.hrefs %}
+        <li>
+          {% if pagination.pageNumber == forloop.index0 %}
+            <span class="{{ page_classes }} text-white bg-mocha">
+              {{ forloop.index }}
+            </span>
+          {% else %}
+            <a href="{{ page }}" class="{{ page_classes }} text-mocha">
+              {{ forloop.index }}
+            </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+      {% if pagination.href.next %}
+        <li>
+          <a
+            href="{{ pagination.href.next }}"
+            aria-label="Next page"
+            class="{{ page_classes }} text-mocha">
+            {% render "svg/chevron_right" %}
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+{% endif %}

@@ -5,7 +5,7 @@ export default async function () {
   const posts = await recursiveGetByType("blog_post", {
     orderings: [
       {
-        field: "my.blog_post.published_date",
+        field: "my.blog_post.publish_date",
         direction: "desc",
       },
     ],

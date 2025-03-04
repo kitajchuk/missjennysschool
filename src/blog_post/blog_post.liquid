@@ -9,8 +9,8 @@ permalink: "/blog/{{ post.uid }}/"
 
 <article class="section-padding justify-center text-left grid grid-cols-1 article-sm:grid-cols-[2fr_1fr] article-sm:grid-rows-[auto_auto] article-sm:gap-x-16 article-lg:gap-x-24 article-lg:grid-cols-[640px_320px]">
   <header class="flex flex-col pb-8 sm:pb-16 article-sm:col-span-2 article-sm:col-start-1">
-    <time datetime="{{ post.data.published_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
-      {{ post.data.published_date | asDate }}
+    <time datetime="{{ post.data.publish_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
+      {{ post.data.publish_date | asDate }}
     </time>
     <h1 class="text-coffee text-h1 font-serif font-medium">{{ post.data.title | asText }}</h1>
   </header>
@@ -48,8 +48,8 @@ permalink: "/blog/{{ post.uid }}/"
     <div class="flex flex-col gap-16 mt-8">
       {% for post in recent_posts %}
         <article>
-          <time datetime="{{ post.data.published_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
-            {{ post.data.published_date | asDate }}
+          <time datetime="{{ post.data.publish_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
+            {{ post.data.publish_date | asDate }}
           </time>
           <h6 class="text-h6 text-coffee font-serif font-medium mb-4">
             {{ post.data.title | asText }}

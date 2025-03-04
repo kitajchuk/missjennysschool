@@ -8,9 +8,9 @@ permalink: "blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber
 ---
 
 <section class="section-padding flex flex-col gap-16 sm:gap-24 justify-center">
-  <h1 class="text-coffee text-h1-lg font-serif font-medium text-center">
-    Miss Jenny&rsquo;s<br/>Blog
-  </h1>
+  <div class="text-coffee text-h1-lg font-serif font-medium text-center">
+    {{ blog_page.data.title | asHTML }}
+  </div>
   <div role="separator" class="w-full max-w-[320px] mx-auto h-[1px] bg-silver"></div>
   {% for post in pagination.items %}
     <article class="text-center w-full max-w-[1440px] mx-auto{% if post.data.image.url %} relative section-padding{% endif %}">

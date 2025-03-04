@@ -10,9 +10,8 @@
             href="{{ pagination.href.previous }}"
             aria-label="Previous page"
             class="{{ page_classes }} text-mocha">
-            <div class="transform rotate-180">
-              {% render "svg/chevron_right" %}
-            </div>
+            {% render "svg/chevron_right"
+              , classes: "transform rotate-180" %}
           </a>
         </li>
       {% endif %}

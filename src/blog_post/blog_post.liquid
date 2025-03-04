@@ -30,9 +30,8 @@ permalink: "/blog/{{ post.uid }}/"
     <div class="flex justify-between items-center border-y border-silver py-4 mt-16 article-sm:mt-24">
       {% if pagination.page.previous %}
         <a href="/blog/{{ pagination.page.previous.uid }}/" class="arrow-link">
-          <div class="transform rotate-180">
-            {% render "svg/east_arrow" %}
-          </div>
+          {% render "svg/east_arrow"
+            , classes: "transform rotate-180" %}
           <span>Previous</span>
         </a>
       {% endif %}

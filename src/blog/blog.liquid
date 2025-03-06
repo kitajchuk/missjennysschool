@@ -7,7 +7,7 @@ pagination:
 permalink: "blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
 ---
 
-<section class="section-padding flex flex-col gap-16 sm:gap-24 justify-center">
+<section class="section-padding page-section">
   <div class="text-coffee text-h1-lg font-serif font-medium text-center">
     {{ blog_page.data.title | asHTML }}
   </div>

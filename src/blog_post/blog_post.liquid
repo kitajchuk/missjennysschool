@@ -8,7 +8,7 @@ permalink: "/blog/{{ post.uid }}/"
 ---
 
 <article class="section-padding justify-center text-left grid grid-cols-1 article-sm:grid-cols-[2fr_1fr] article-sm:grid-rows-[auto_auto] article-sm:gap-x-16 article-lg:gap-x-24 article-lg:grid-cols-[640px_320px]">
-  <header class="flex flex-col pb-8 sm:pb-16 article-sm:col-span-2 article-sm:col-start-1">
+  <header class="flex flex-col pb-8 sm:pb-16 article-sm:col-span-2 article-sm:col-start-1 border-b border-silver mb-8 sm:mb-16">
     <time datetime="{{ post.data.publish_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
       {{ post.data.publish_date | asDate }}
     </time>

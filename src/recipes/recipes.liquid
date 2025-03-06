@@ -3,6 +3,18 @@ layout: layout.liquid
 title: Recipes
 ---
 
-<section class="text-center section-padding">
-  <h1 class="text-coffee text-h1-lg font-serif font-medium">Recipes</h1>
+<section class="section-padding page-section">
+  <h1 class="text-coffee text-h1-lg font-serif font-medium w-[58.333vw] max-w-[840px] max-[835px]:w-full max-[835px]:max-w-[500px]">
+    {{ recipes_page.data.title | asText }}
+  </h1>
+
+  {% render "separator"
+    , classes: "rainbow-gradient" %}
+
+  <h2 class="text-coffee text-h2 font-serif font-medium">
+    {{ recipes_page.data.subtitle | asText }}
+  </h2>
+
+  {% render "separator"
+    , classes: "rainbow-gradient" %}
 </section>

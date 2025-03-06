@@ -1,5 +1,5 @@
 <ul class="flex items-center gap-6{% if classes %} {{ classes }}{% endif %}">
-  <li>
+  <li class="relative transition-transform motion-reduce:transition-none hover:translate-y-[-2px]">
     <a
       href="{{ site.eventbrite_page.url }}"
       title="Eventbrite"
@@ -9,7 +9,7 @@
       {% render "svg/calendar_event" %}
     </a>
   </li>
-  <li>
+  <li class="relative transition-transform motion-reduce:transition-none hover:translate-y-[-2px]">
     <a
       href="{{ site.facebook_page.url }}"
       title="Facebook"

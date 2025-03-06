@@ -20,43 +20,37 @@ permalink: "/blog/{{ post.uid }}/"
         {% render "partials/image"
           , image: post.data.image
           , sizes: "(max-width: 768px) 100vw, 640px"
-          , loading: "eager"
-          , classes: "" %}
+          , loading: "eager" %}
       </div>
+    {% endif %}
+    {% assign cms_classes = "" %}
+    {% if post.data.half_width_images %}
+      {% assign cms_classes = "cms-half-width-images" %}
     {% endif %}
     {% render "partials/rich_text"
       , body: post.data.content
-      , center_text: post.data.center_text %}
-    <div class="flex justify-between items-center border-y border-silver py-4 mt-16 article-sm:mt-24">
-      {% if pagination.page.previous %}
-        <a href="/blog/{{ pagination.page.previous.uid }}/" class="arrow-link">
-          {% render "svg/east_arrow"
-            , classes: "transform rotate-180" %}
-          <span>Previous</span>
-        </a>
-      {% endif %}
-      {% if pagination.page.next %}
-        <a href="/blog/{{ pagination.page.next.uid }}/" class="ml-auto arrow-link">
-          <span>Next</span>
-          {% render "svg/east_arrow" %}
-        </a>
-      {% endif %}
-    </div>
+      , classes: cms_classes %}
+    {% render "templates/pagination_post"
+      , pagination: pagination %}
   </section>
   <aside class="mt-16 article-sm:mt-0">
     <h6 class="text-mocha text-h6 font-serif font-medium">Recent Posts</h6>
     <div class="flex flex-col gap-16 mt-8">
       {% for post in recent_posts %}
         <article>
-          <time datetime="{{ post.data.publish_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
-            {{ post.data.publish_date | asDate }}
-          </time>
-          <h6 class="text-h6 text-coffee font-serif font-medium mb-4">
-            {{ post.data.title | asText }}
-          </h6>
-          <a href="/blog/{{ post.uid }}/" class="arrow-link text-base">
-            <span>Read this blog post</span>
-            {% render "svg/east_arrow" %}
+          <a href="/blog/{{ post.uid }}/" class="group block">
+            <time datetime="{{ post.data.publish_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
+              {{ post.data.publish_date | asDate }}
+            </time>
+            <h6 class="text-h6 text-coffee font-serif font-medium mb-4">
+              {{ post.data.title | asText }}
+            </h6>
+            <div class="arrow-link text-base">
+              <span>Read this blog post</span>
+              <span class="group-hover:translate-x-1 transition-transform motion-reduce:transition-none">
+                {% render "svg/east_arrow" %}
+              </span>
+            </div>
           </a>
         </article>
       {% endfor %}

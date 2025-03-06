@@ -23,7 +23,7 @@ permalink: "blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber
           <div class="absolute top-0 left-0 w-full h-full bg-coffee/40" aria-hidden="true"></div>
         </div>
       {% endif %}
-      <a href="/blog/{{ post.uid }}/" class="relative inline-flex flex-col items-center">
+      <a href="/blog/{{ post.uid }}/" class="group relative inline-flex flex-col items-center">
         <time datetime="{{ post.data.publish_date | asDate }}" class="{% if post.data.image.url %}text-white shadow-text{% else %}text-dark-olive{% endif %} text-sm sm:text-base">
           {{ post.data.publish_date | asDate }}
         </time>
@@ -32,11 +32,13 @@ permalink: "blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber
         </div>
         <div class="text-p arrow-link{% if post.data.image.url %} text-white shadow-text{% endif %}">
           <span>Read this blog post</span>
-          {% render "svg/east_arrow" %}
-        </div>
+          <span class="group-hover:translate-x-1 transition-transform motion-reduce:transition-none">
+            {% render "svg/east_arrow" %}
+          </div>
+        </span>
       </a>
     </article>
   {% endfor %}
-  {% render "templates/pagination"
+  {% render "templates/pagination_page"
     , pagination: pagination %}
 </section>

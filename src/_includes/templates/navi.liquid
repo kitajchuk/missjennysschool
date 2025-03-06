@@ -24,16 +24,17 @@
     </span>
   </button>
   <div id="navi-menu" class="navi-menu">
-    <ul class="flex flex-col gap-6 items-center text-h6-max sm:text-base sm:flex-row sm:gap-4">
+    <ul class="flex flex-col gap-6 items-center text-h6-max sm:text-base sm:flex-row sm:gap-4 sm:hover:text-mocha sm:transition-colors sm:motion-reduce:transition-none">
       {% for link in navi %}
+        {% assign classes = "sm:hover:text-coffee" %}
         <li>
           <a
             href="/{{ link }}/"
             {% if slug == link %}
             aria-current="page"
-            class="border-b border-inherit"
+            class="{{ classes }} border-b border-inherit"
             {% else %}
-            class="sm:hover:text-mocha sm:transition-colors sm:motion-reduce:transition-none"
+            class="{{ classes }}"
             {% endif %}>
             {{ link | capitalize }}
           </a>

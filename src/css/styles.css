@@ -276,6 +276,12 @@
       @apply list-decimal ml-4;
     }
   }
+
+  .cms-half-width-images {
+    > .img {
+      @apply max-w-[50%];
+    }
+  }
 }
 
 @layer utilities {

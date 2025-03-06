@@ -1,5 +1,5 @@
 {% assign rich_text = body | asHTML %}
 
-<div class="cms flex flex-col text-left">
+<div class="cms flex flex-col text-left {{ classes }}">
   {{ rich_text }}
 </div>

@@ -11,7 +11,7 @@ permalink: "blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber
   <div class="text-coffee text-h1-lg font-serif font-medium text-center">
     {{ blog_page.data.title | asHTML }}
   </div>
-  <div role="separator" class="w-full max-w-[320px] mx-auto h-[1px] bg-silver"></div>
+  {% render "separator" %}
   {% for post in pagination.items %}
     <article class="text-center w-full max-w-[1440px] mx-auto{% if post.data.image.url %} relative section-padding{% endif %}">
       {% if post.data.image.url %}

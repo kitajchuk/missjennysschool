@@ -9,8 +9,10 @@ deferred_script: https://challenges.cloudflare.com/turnstile/v0/api.js?onload=on
 {% assign input_class = "text-black-olive bg-eggshell border-2 border-silver p-2 rounded-lg w-full text-base focus:outline-none focus:border-coffee placeholder:text-dark-olive autofill:shadow-[inset_0_0_0_100px_var(--color-pearl)]" %}
 {% assign textarea_class = input_class | append: " min-h-32" %}
 
-<section class="cms text-center section-padding flex flex-col items-center justify-center gap-16 sm:gap-24">
-  <h1 class="text-coffee">Contact</h1>
+<section class="text-center section-padding flex flex-col items-center justify-center gap-16 sm:gap-24">
+  <h1 class="text-coffee text-h1-lg font-serif font-medium">Contact</h1>
+
+  {% render "separator" %}
 
   <form
     id="contact-form"

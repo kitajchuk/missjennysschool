@@ -3,6 +3,15 @@ layout: layout.liquid
 title: Tuition
 ---
 
-<section class="cms text-center section-padding">
-  <h1>Tuition</h1>
+<section class="text-center section-padding flex flex-col items-center justify-center gap-16 sm:gap-24">
+  <h1 class="text-coffee text-h1-lg font-serif font-medium">
+    {{ tuition_page.data.title | asText }}
+  </h1>
+
+  {% render "separator" %}
+
+  <div class="cms">
+    {% render "partials/rich_text"
+      , body: tuition_page.data.body %}
+  </div>
 </section>

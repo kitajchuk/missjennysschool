@@ -3,8 +3,24 @@ layout: layout.liquid
 title: About
 ---
 
-<section class="section-padding page-section">
-  <h1 class="text-coffee text-h1-lg font-serif font-medium">About</h1>
+{% if about_page.data.image.url %}
+  {% render "templates/hero"
+    , hero: about_page.data.image
+    , title: about_page.data.title %}
+{% endif %}
 
-  {% render "separator" %}
+<section class="section-padding page-section">
+  {% if about_page.data.image.url %}
+  {% else %}
+    <div class="text-coffee text-h1-lg font-serif font-medium">
+      {{ about_page.data.title | asHTML }}
+    </div>
+
+    {% render "separator"
+      , classes: "rainbow-gradient" %}
+  {% endif %}
+
+  {% render "partials/rich_text"
+    , body: about_page.data.body
+    , classes: "w-full max-w-2xl mx-auto" %}
 </section>

@@ -138,7 +138,9 @@
       h-[100vw]
       xsm:h-[80vw]
       md:h-[60vw]
-      lg:h-[42vw];
+      lg:h-[42vw]
+      border-b
+      border-dark-olive;
   }
 
   /* Gallery */

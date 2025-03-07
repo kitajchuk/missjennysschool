@@ -10,8 +10,7 @@ title: Tuition
 
   {% render "separator" %}
 
-  <div class="cms">
-    {% render "partials/rich_text"
-      , body: tuition_page.data.body %}
-  </div>
+  {% render "partials/rich_text"
+    , body: tuition_page.data.body
+    , classes: "w-full max-w-lg mx-auto" %}
 </section>

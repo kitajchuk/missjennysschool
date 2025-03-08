@@ -129,10 +129,13 @@
   /* Hero */
   .hero {
     @apply relative
+      w-full
       overflow-hidden
       px-4
       sm:px-8
       flex
+      flex-col
+      gap-4
       items-center
       justify-center
       h-[100vw]

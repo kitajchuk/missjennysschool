@@ -29,4 +29,9 @@
   <div class="relative z-3 text-h1-lg font-serif font-medium text-center text-white shadow-text">
     {{ title | asHTML }}
   </div>
+  {% if subtitle %}
+    <div class="relative z-3 text-h5 font-serif font-medium text-center text-white shadow-text">
+      {{ subtitle | asHTML }}
+    </div>
+  {% endif %}
 </section>

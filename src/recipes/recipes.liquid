@@ -3,17 +3,36 @@ layout: layout.liquid
 title: Recipes
 ---
 
+{% assign title_classes = "w-[58.333vw] max-w-[840px] max-[835px]:w-full max-[835px]:max-w-[500px]" %}
+
+{% if recipes_page.data.image.url %}
+  {% render "templates/hero"
+    , hero: recipes_page.data.image
+    , title: recipes_page.data.title
+    , subtitle: recipes_page.data.subtitle
+    , title_classes: title_classes %}
+{% endif %}
+
+
 <section class="section-padding page-section">
-  <h1 class="text-coffee text-h1-lg font-serif font-medium w-[58.333vw] max-w-[840px] max-[835px]:w-full max-[835px]:max-w-[500px]">
-    {{ recipes_page.data.title | asText }}
-  </h1>
+  {% if recipes_page.data.image.url %}
+  {% else %}
+    <div class="flex flex-col gap-4">
+      <h1 class="text-coffee text-h1-lg font-serif font-medium {{ title_classes }}">
+        {{ recipes_page.data.title | asText }}
+      </h1>
+      <h2 class="text-coffee text-h5 font-serif font-medium">
+        {{ recipes_page.data.subtitle | asText }}
+      </h2>
+    </div>
+  {% endif %}
 
   {% render "separator"
     , classes: "rainbow-gradient" %}
 
-  <h2 class="text-coffee text-h2 font-serif font-medium">
-    {{ recipes_page.data.subtitle | asText }}
-  </h2>
+  <div class="text-p">
+    [categories]
+  </div>
 
   {% render "separator"
     , classes: "rainbow-gradient" %}

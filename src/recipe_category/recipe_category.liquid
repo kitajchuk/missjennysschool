@@ -1,0 +1,21 @@
+---
+layout: layout.liquid
+pagination:
+  data: recipe_categories
+  size: 1
+  alias: recipe_category
+permalink: "recipes/category/{{ recipe_category.uid }}/"
+---
+
+<section class="section-padding page-section">
+  <h1 class="text-coffee text-h1-lg font-serif font-medium">
+    {{ recipe_category.data.name }}
+  </h1>
+
+  {% render "separator"
+    , classes: "rainbow-gradient" %}
+
+  {% render "templates/post_list"
+    , posts: recipes
+    , post_type: "recipes" %}
+</section>

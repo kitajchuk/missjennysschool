@@ -1,8 +1,8 @@
-import client, { recursiveGetByType } from "../../lib/prismic.client.js";
+import client from "../../lib/prismic.client.js";
 
 export default async function () {
   const blog_page = await client.getByUID("page", "blog");
-  const posts = await recursiveGetByType("blog_post", {
+  const posts = await client.getAllByType("blog_post", {
     orderings: [
       {
         field: "my.blog_post.publish_date",

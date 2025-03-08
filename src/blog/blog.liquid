@@ -12,33 +12,8 @@ permalink: "blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber
     {{ blog_page.data.title | asHTML }}
   </div>
   {% render "separator" %}
-  {% for post in pagination.items %}
-    <article class="text-center w-full max-w-[1440px] mx-auto{% if post.data.image.url %} relative section-padding{% endif %}">
-      {% if post.data.image.url %}
-        <div class="img absolute w-full h-full inset-0">
-          {% render "partials/image"
-            , image: post.data.image
-            , sizes: "100vw"
-            , classes: "absolute w-full h-full inset-0 object-cover" %}
-          <div class="absolute top-0 left-0 w-full h-full bg-coffee/40" aria-hidden="true"></div>
-        </div>
-      {% endif %}
-      <a href="/blog/{{ post.uid }}/" class="group relative inline-flex flex-col items-center">
-        <time datetime="{{ post.data.publish_date | asDate }}" class="{% if post.data.image.url %}text-white shadow-text{% else %}text-dark-olive{% endif %} text-sm sm:text-base">
-          {{ post.data.publish_date | asDate }}
-        </time>
-        <div class="{% if post.data.image.url %}text-white shadow-text{% else %}text-coffee{% endif %} text-h3 font-serif font-medium mb-6">
-          {{ post.data.title | asHTML }}
-        </div>
-        <div class="text-p arrow-link{% if post.data.image.url %} text-white shadow-text{% endif %}">
-          <span>Read this blog post</span>
-          <span class="group-hover:translate-x-1 transition-transform motion-reduce:transition-none">
-            {% render "svg/east_arrow" %}
-          </div>
-        </span>
-      </a>
-    </article>
-  {% endfor %}
-  {% render "templates/pagination_page"
-    , pagination: pagination %}
+  {% render "templates/post_list"
+    , pagination: pagination
+    , post_type: "blog"
+    , posts: pagination.items %}
 </section>

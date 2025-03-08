@@ -1,0 +1,16 @@
+---
+layout: layout.liquid
+pagination:
+  data: recipes
+  size: 1
+  alias: recipe
+permalink: "/recipes/{{ recipe.uid }}/"
+---
+
+{% render "templates/post_single"
+  , post: recipe
+  , post_type: "recipes"
+  , pagination: pagination
+  , sidebar_posts: related_recipes
+  , sidebar_title: "Related Recipes"
+  , sidebar_link_text: "Make this recipe" %}

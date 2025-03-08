@@ -1,0 +1,50 @@
+<article class="section-padding justify-center text-left grid grid-cols-1 article-sm:grid-cols-[2fr_1fr] article-sm:grid-rows-[auto_auto] article-sm:gap-x-16 article-lg:gap-x-24 article-lg:grid-cols-[640px_320px]">
+  <header class="flex flex-col pb-8 sm:pb-16 article-sm:col-span-2 article-sm:col-start-1 border-b border-silver mb-8 sm:mb-16">
+    <time datetime="{{ post.data.publish_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
+      {{ post.data.publish_date | asDate }}
+    </time>
+    <h1 class="text-coffee text-h1 font-serif font-medium">{{ post.data.title | asText }}</h1>
+  </header>
+  <section class="">
+    {% if post.data.image.url %}
+      <div class="img mb-8">
+        {% render "partials/image"
+          , image: post.data.image
+          , sizes: "(max-width: 768px) 100vw, 640px"
+          , loading: "eager" %}
+      </div>
+    {% endif %}
+    {% assign cms_classes = "" %}
+    {% if post.data.half_width_images %}
+      {% assign cms_classes = "cms-half-width-images" %}
+    {% endif %}
+    {% render "partials/rich_text"
+      , body: post.data.content
+      , classes: cms_classes %}
+    {% render "templates/pagination_post"
+      , pagination: pagination %}
+  </section>
+  <aside class="mt-16 article-sm:mt-0">
+    <h6 class="text-mocha text-h6 font-serif font-medium">{{ sidebar_title }}</h6>
+    <div class="flex flex-col gap-16 mt-8">
+      {% for post in sidebar_posts %}
+        <article>
+          <a href="/{{ post_type }}/{{ post.uid }}/" class="group block">
+            <time datetime="{{ post.data.publish_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
+              {{ post.data.publish_date | asDate }}
+            </time>
+            <h6 class="text-h6 text-coffee font-serif font-medium mb-4">
+              {{ post.data.title | asText }}
+            </h6>
+            <div class="arrow-link text-base">
+              <span>{{ sidebar_link_text }}</span>
+              <span class="group-hover:translate-x-1 transition-transform motion-reduce:transition-none">
+                {% render "svg/east_arrow" %}
+              </span>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </aside>
+</article>

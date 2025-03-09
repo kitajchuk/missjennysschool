@@ -5,7 +5,7 @@ export default async function () {
   const recipes = await client.getAllByType("recipe", {
     orderings: [
       {
-        field: "my.recipe.published_date",
+        field: "my.recipe.publish_date",
         direction: "desc",
       },
     ],
@@ -23,13 +23,9 @@ export default async function () {
     recipe_categories,
     eleventyComputed: {
       title: (data) => asText(data.recipe.data.title),
-      related_recipes: (data) =>
+      recent_recipes: (data) =>
         data.recipes
-          .filter(
-            (recipe) =>
-              recipe.uid !== data.recipe.uid &&
-              recipe.data.category.uid === data.recipe.data.category.uid,
-          )
+          .filter((recipe) => recipe.uid !== data.recipe.uid)
           .slice(0, 3),
     },
   };

@@ -5,7 +5,7 @@ export default async function () {
   const posts = await client.getAllByType("blog_post", {
     orderings: [
       {
-        field: "my.blog_post.published_date",
+        field: "my.blog_post.publish_date",
         direction: "desc",
       },
     ],

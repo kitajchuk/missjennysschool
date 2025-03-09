@@ -1,5 +1,5 @@
 {% for post in posts %}
-  <article class="text-center w-full max-w-[1440px] mx-auto{% if post.data.image.url %} relative section-padding{% endif %}">
+  <article class="text-center w-full mx-auto {% if post.data.image.url %}relative section-padding max-w-[768px]{% else %}max-w-[1440px]{% endif %}">
     {% if post.data.image.url %}
       <div class="img absolute w-full h-full inset-0">
         {% render "partials/image"
@@ -17,7 +17,7 @@
         {{ post.data.title | asHTML }}
       </div>
       <div class="text-p arrow-link{% if post.data.image.url %} text-white shadow-text{% endif %}">
-        <span>Read this blog post</span>
+        <span>{{ post_link_text }}</span>
         <span class="group-hover:translate-x-1 transition-transform motion-reduce:transition-none">
           {% render "svg/east_arrow" %}
         </span>

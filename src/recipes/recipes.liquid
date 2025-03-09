@@ -30,10 +30,19 @@ title: Recipes
   {% render "separator"
     , classes: "rainbow-gradient" %}
 
-  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-2 w-full max-w-[1060px] mx-auto">
     {% for category in recipe_categories %}
-      <a href="/recipes/category/{{ category.uid }}/" class="text-p">
-        {{ category.data.name }}
+      <a href="/recipes/category/{{ category.uid }}/" class="relative aspect-[4/3] flex flex-col justify-center items-center">
+        <div class="img absolute w-full h-full inset-0 z-1">
+          {% render "partials/image"
+            , image: category.data.image
+            , sizes: "100vw"
+            , classes: "absolute w-full h-full inset-0 object-cover" %}
+          <div class="absolute top-0 left-0 w-full h-full bg-coffee/40" aria-hidden="true"></div>
+        </div>
+        <div class="relative z-2 text-h4 font-serif font-medium text-white shadow-text">
+          {{ category.data.name }}
+        </div>
       </a>
     {% endfor %}
   </div>

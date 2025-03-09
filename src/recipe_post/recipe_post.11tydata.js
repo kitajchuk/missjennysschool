@@ -10,8 +10,17 @@ export default async function () {
       },
     ],
   });
+  const recipe_categories = await client.getAllByType("recipe_category", {
+    orderings: [
+      {
+        field: "document.first_publication_date",
+        direction: "asc",
+      },
+    ],
+  });
   return {
     recipes,
+    recipe_categories,
     eleventyComputed: {
       title: (data) => asText(data.recipe.data.title),
       related_recipes: (data) =>

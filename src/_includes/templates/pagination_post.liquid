@@ -1,6 +1,6 @@
 <div class="flex justify-between items-center border-y border-silver py-4 mt-16 article-sm:mt-24">
   {% if pagination.page.previous %}
-    <a href="/blog/{{ pagination.page.previous.uid }}/" class="group arrow-link">
+    <a href="/{{ post_type }}/{{ pagination.page.previous.uid }}/" class="group arrow-link">
       <span class="group-hover:-translate-x-1 transition-transform motion-reduce:transition-none">
         {% render "svg/east_arrow"
           , classes: "transform rotate-180" %}
@@ -9,7 +9,7 @@
     </a>
   {% endif %}
   {% if pagination.page.next %}
-    <a href="/blog/{{ pagination.page.next.uid }}/" class="group ml-auto arrow-link">
+    <a href="/{{ post_type }}/{{ pagination.page.next.uid }}/" class="group ml-auto arrow-link">
       <span>Next</span>
       <span class="group-hover:translate-x-1 transition-transform motion-reduce:transition-none">
         {% render "svg/east_arrow" %}

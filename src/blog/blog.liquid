@@ -13,7 +13,8 @@ permalink: "blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber
   </div>
   {% render "separator" %}
   {% render "templates/post_list"
-    , pagination: pagination
+    , posts: pagination.items
     , post_type: "blog"
-    , posts: pagination.items %}
+    , pagination: pagination
+    , post_link_text: "Read this blog post" %}
 </section>

@@ -2,22 +2,24 @@ import client from "../../lib/prismic.client.js";
 import { asText } from "../../lib/filters/as_text.js";
 
 export default async function () {
-  const recipes = await client.getAllByType("recipe", {
-    orderings: [
-      {
-        field: "my.recipe.publish_date",
-        direction: "desc",
-      },
-    ],
-  });
-  const recipe_categories = await client.getAllByType("recipe_category", {
-    orderings: [
-      {
-        field: "document.first_publication_date",
-        direction: "asc",
-      },
-    ],
-  });
+  const [recipes, recipe_categories] = await Promise.all([
+    client.getAllByType("recipe", {
+      orderings: [
+        {
+          field: "my.recipe.publish_date",
+          direction: "desc",
+        },
+      ],
+    }),
+    client.getAllByType("recipe_category", {
+      orderings: [
+        {
+          field: "document.first_publication_date",
+          direction: "asc",
+        },
+      ],
+    }),
+  ]);
   return {
     recipes,
     recipe_categories,

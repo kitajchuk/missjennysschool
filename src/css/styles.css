@@ -78,7 +78,7 @@
 
   /* Image */
   .img {
-    @apply border border-dark-olive rounded-lg overflow-hidden bg-white;
+    @apply border border-dark-olive rounded-lg overflow-hidden;
   }
 
   /* Links */
@@ -237,8 +237,8 @@
       @apply mt-0;
     }
 
-    .img-half {
-      @apply max-w-[50%];
+    .img {
+      @apply bg-white;
     }
 
     h1 {

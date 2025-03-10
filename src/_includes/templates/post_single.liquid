@@ -7,11 +7,13 @@
   </header>
   <section class="">
     {% if post.data.image.url %}
-      <div class="img mb-8 max-w-max">
+      {% assign is_portrait = post.data.image.dimensions.width < post.data.image.dimensions.height %}
+      <div class="img mb-8 aspect-[4/3] relative">
         {% render "partials/image"
           , image: post.data.image
           , sizes: "(max-width: 768px) 100vw, 640px"
-          , loading: "eager" %}
+          , loading: "eager"
+          , classes: "absolute w-full h-full inset-0 object-cover" %}
       </div>
     {% endif %}
     {% assign cms_classes = "" %}

@@ -30,7 +30,7 @@ title: Recipes
   {% render "separator"
     , classes: "rainbow-gradient" %}
 
-  <div class="grid grid-cols-1 gap-8 md:grid-cols-2 w-full max-w-[1060px] mx-auto">
+  <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 w-full max-w-[1060px] mx-auto">
     {% for category in recipe_categories %}
       <a href="/recipes/category/{{ category.uid }}/" class="relative aspect-[4/3] flex flex-col justify-center items-center">
         <div class="img absolute w-full h-full inset-0 z-1">

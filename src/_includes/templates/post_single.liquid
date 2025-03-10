@@ -39,7 +39,7 @@
                 <time datetime="{{ post.data.publish_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
                   {{ post.data.publish_date | asDate }}
                 </time>
-                <h6 class="text-h6 text-coffee font-serif font-medium mb-4">
+                <h6 class="text-h6 text-coffee font-serif font-medium mb-2">
                   {{ post.data.title | asText }}
                 </h6>
                 <div class="arrow-link text-base">
@@ -57,9 +57,9 @@
     {% if sidebar_categories %}
       <div class="flex flex-col gap-4">
         <h6 class="text-mocha text-h6 font-serif font-medium">Categories</h6>
-        <div class="flex flex-col border-t border-silver">
+        <div class="flex flex-col">
           {% for category in sidebar_categories %}
-            <a href="/{{ post_type }}/category/{{ category.uid }}/" class="text-beaver hover:text-coffee italic border-b border-silver py-2 transition-colors motion-reduce:transition-none">
+            <a href="/{{ post_type }}/category/{{ category.uid }}/" class="text-beaver hover:text-coffee italic transition-colors motion-reduce:transition-none">
               <span>{{ category.data.name }}</span>
             </a>
           {% endfor %}

@@ -8,9 +8,14 @@ permalink: "recipes/category/{{ item.category.uid }}/{% if item.pagination.pageN
 ---
 
 <section class="section-padding page-section">
-  <h1 class="text-coffee text-h1-lg font-serif font-medium">
-    {{ item.category.data.name }}
-  </h1>
+  <div class="flex flex-col gap-4">
+    <h1 class="text-coffee text-h1-lg font-serif font-medium">
+      {{ item.category.data.name }}
+    </h1>
+    <div class="text-h5 text-mocha font-serif font-medium">
+      Recipes
+    </div>
+  </div>
   {% render "separator"
     , classes: "rainbow-gradient" %}
   {% render "templates/post_list"

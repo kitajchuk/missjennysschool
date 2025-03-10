@@ -13,7 +13,7 @@
       <time datetime="{{ post.data.publish_date | asDate }}" class="{% if post.data.image.url %}text-white shadow-text{% else %}text-dark-olive{% endif %} text-sm sm:text-base">
         {{ post.data.publish_date | asDate }}
       </time>
-      <div class="{% if post.data.image.url %}text-white shadow-text{% else %}text-coffee{% endif %} text-h3 font-serif font-medium mb-6">
+      <div class="{% if post.data.image.url %}text-white shadow-text{% else %}text-coffee{% endif %} text-h3 font-serif font-medium mb-4">
         {{ post.data.title | asHTML }}
       </div>
       <div class="text-p arrow-link{% if post.data.image.url %} text-white shadow-text{% endif %}">

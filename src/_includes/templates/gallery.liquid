@@ -30,8 +30,8 @@
     {{ title | asHTML }}
   </div>
   {% if subtitle %}
-    <div class="relative z-3 text-h5 font-serif font-medium text-center text-white shadow-text">
-      {{ subtitle | asHTML }}
-    </div>
+    <h2 class="relative z-3 text-h5 font-serif font-medium text-center text-white shadow-text">
+      &mdash;&nbsp;{{ subtitle | asText }}&nbsp;&mdash;
+    </h2>
   {% endif %}
 </section>

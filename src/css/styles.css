@@ -238,7 +238,7 @@
     }
 
     .img {
-      @apply bg-white;
+      @apply max-w-max;
     }
 
     h1 {
@@ -274,11 +274,11 @@
     }
 
     ul {
-      @apply list-disc ml-4;
+      @apply list-disc pl-4;
     }
 
     ol {
-      @apply list-decimal ml-4;
+      @apply list-decimal pl-4;
     }
   }
 
@@ -313,5 +313,11 @@
       #dba386 83%,
       #e9b5a9 100%
     );
+  }
+}
+
+@layer hacks {
+  img[alt*="Kodiak"] {
+    @apply bg-white;
   }
 }

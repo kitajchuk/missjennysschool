@@ -1,22 +1,13 @@
 {% for post in posts %}
-  <article class="text-center w-full mx-auto {% if post.data.image.url %}relative section-padding max-w-[768px]{% else %}max-w-[1440px]{% endif %}">
-    {% if post.data.image.url %}
-      <div class="img absolute w-full h-full inset-0">
-        {% render "partials/image"
-          , image: post.data.image
-          , sizes: "100vw"
-          , classes: "absolute w-full h-full inset-0 object-cover" %}
-        <div class="absolute top-0 left-0 w-full h-full bg-coffee/40" aria-hidden="true"></div>
-      </div>
-    {% endif %}
+  <article class="text-center w-full mx-auto max-w-xl">
     <a href="/{{ post_type }}/{{ post.uid }}/" class="group relative inline-flex flex-col items-center">
-      <time datetime="{{ post.data.publish_date | asDate }}" class="{% if post.data.image.url %}text-white shadow-text{% else %}text-dark-olive{% endif %} text-sm sm:text-base">
+      <time datetime="{{ post.data.publish_date | asDate }}" class="text-dark-olive text-sm sm:text-base">
         {{ post.data.publish_date | asDate }}
       </time>
-      <div class="{% if post.data.image.url %}text-white shadow-text{% else %}text-coffee{% endif %} text-h3 font-serif font-medium mb-4">
+      <div class="text-coffee text-h3 font-serif font-medium mb-4">
         {{ post.data.title | asHTML }}
       </div>
-      <div class="text-p arrow-link{% if post.data.image.url %} text-white shadow-text{% endif %}">
+      <div class="text-p arrow-link">
         <span>{{ post_link_text }}</span>
         <span class="group-hover:translate-x-1 transition-transform motion-reduce:transition-none">
           {% render "svg/east_arrow" %}

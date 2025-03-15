@@ -17,9 +17,13 @@ import "./common";
   const message = document.getElementById("message");
 
   function validate() {
-    if (name.validity.valid && email.validity.valid && turnstileSuccess) {
+    // Rely on browser built-in validation for required fields
+    // E.g. name.validity.valid && email.validity.valid
+    if (turnstileSuccess) {
+      button.textContent = "Send";
       button.removeAttribute("disabled");
     } else {
+      button.textContent = "Verifying that you&rsquo;re human...";
       button.setAttribute("disabled", "disabled");
     }
   }
@@ -32,7 +36,6 @@ import "./common";
   function handleError(/*cause*/) {
     resetTurnstile();
     button.textContent = "Send";
-    button.removeAttribute("disabled");
     error.classList.remove("hidden");
   }
 
@@ -47,7 +50,6 @@ import "./common";
     success.classList.add("hidden");
     error.classList.add("hidden");
     button.textContent = "Send";
-    button.setAttribute("disabled", "disabled");
     name.value = "";
     email.value = "";
     children.value = "";
@@ -62,7 +64,6 @@ import "./common";
     e.preventDefault();
     const formData = new FormData(form);
 
-    button.setAttribute("disabled", "disabled");
     button.textContent = "Sending...";
     success.classList.add("hidden");
     error.classList.add("hidden");

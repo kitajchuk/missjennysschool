@@ -4,7 +4,7 @@
     , sizes: "100vw"
     , loading: "eager"
     , classes: "absolute z-1 w-full h-full top-0 left-0 object-cover" %}
-  <div class="absolute z-2 top-0 left-0 w-full h-full bg-coffee/40" aria-hidden="true"></div>
+  {% render "scrim" %}
   <div class="relative z-3 text-h1-lg font-serif font-medium text-center text-white shadow-text {{ title_classes }}">
     {{ title | asHTML }}
   </div>

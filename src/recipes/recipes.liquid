@@ -49,7 +49,7 @@ title: Recipes
               , image: category.data.image
               , sizes: "100vw"
               , classes: "absolute w-full h-full inset-0 object-cover" %}
-            <div class="absolute top-0 left-0 w-full h-full bg-coffee/40" aria-hidden="true"></div>
+            {% render "scrim" %}
           </div>
           <div class="relative z-2 text-h5 font-serif font-medium text-white shadow-text">
             {{ category.data.name }}

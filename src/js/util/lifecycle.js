@@ -24,8 +24,8 @@ export const getLifecycle = ({
   }
 
   return {
-    startInterval,
-    stopInterval,
     updateIndex,
+    stopInterval,
+    startInterval,
   };
 };

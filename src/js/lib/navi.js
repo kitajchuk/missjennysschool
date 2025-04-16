@@ -13,7 +13,6 @@ import { getPropertyValue, getTransitionDuration } from "../util/styles";
 
   function openNavi() {
     naviControl.setAttribute("aria-expanded", "true");
-    navi.classList.add("max-sm:text-cream");
     naviArrow.classList.add("rotate-180");
     naviMenu.classList.add(...animClasses);
     setTimeout(() => {
@@ -28,7 +27,6 @@ import { getPropertyValue, getTransitionDuration } from "../util/styles";
       : [...showClasses, ...animClasses];
 
     naviControl.setAttribute("aria-expanded", "false");
-    navi.classList.remove("max-sm:text-cream");
     naviArrow.classList.remove("rotate-180");
     naviMenu.classList.remove(...removeClasses);
     naviMenu.classList.add(...hideClasses);

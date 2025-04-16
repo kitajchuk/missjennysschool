@@ -15,3 +15,13 @@ export const getIntersectionObserver = ({
   observer.observe(element);
   return observer;
 };
+
+export const getResizeObserver = ({ element, onResize = () => {} }) => {
+  const observer = new ResizeObserver((entries) => {
+    entries.forEach((entry) => {
+      onResize(entry);
+    });
+  });
+  observer.observe(element);
+  return observer;
+};

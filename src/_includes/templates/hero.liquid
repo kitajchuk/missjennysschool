@@ -5,11 +5,11 @@
     , loading: "eager"
     , classes: "absolute z-1 w-full h-full top-0 left-0 object-cover" %}
   {% render "scrim" %}
-  <div class="relative z-3 text-h1-lg font-serif font-medium text-center text-white shadow-text {{ title_classes }}">
+  <div class="relative z-3 text-h1-lg font-hand font-normal text-center text-white shadow-text {{ title_classes }}">
     {{ title | asHTML }}
   </div>
   {% if subtitle %}
-    <h2 class="relative z-3 text-h5 font-serif font-medium text-center text-white shadow-text italic">
+    <h2 class="relative z-3 text-h5 font-hand font-normal text-center text-white shadow-text italic">
       &mdash;&nbsp;{{ subtitle | asText }}&nbsp;&mdash;
     </h2>
   {% endif %}

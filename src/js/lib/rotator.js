@@ -1,17 +1,21 @@
 import { getLifecycle } from "../util/lifecycle";
 import { getTransitionDuration } from "../util/styles";
-import { getIntersectionObserver } from "../util/observer";
+import { getResizeObserver, getIntersectionObserver } from "../util/observer";
 
 (() => {
   const rotator = document.getElementById("rotator");
   const rotatorMask = document.getElementById("rotator-mask");
+  const rotatorClone = document.getElementById("rotator-clone");
   const items = rotator?.querySelectorAll(".rotator-item");
-
   const { startInterval, stopInterval, updateIndex } = getLifecycle({
     cycleLength: items.length,
     cycleInterval: 4000,
     onNewCycle: changeText,
   });
+
+  function setCloneText(item) {
+    rotatorClone.textContent = item.textContent.trim();
+  }
 
   function setMaskWidth(item) {
     rotatorMask.style.setProperty(
@@ -32,6 +36,7 @@ import { getIntersectionObserver } from "../util/observer";
     inItem.classList.add("rotator-item-staged-enter");
     inItem.setAttribute("aria-hidden", "false");
     setMaskWidth(inItem);
+    setCloneText(inItem);
 
     setTimeout(() => {
       inItem.classList.add("rotator-item-current");
@@ -50,11 +55,21 @@ import { getIntersectionObserver } from "../util/observer";
   function init() {
     let initialized = false;
 
+    getResizeObserver({
+      element: rotator,
+      onResize: () => {
+        if (initialized) {
+          setMaskWidth(rotatorClone);
+        }
+      },
+    });
+
     getIntersectionObserver({
       element: rotator,
       onIntersect: () => {
         if (!initialized) {
           initialized = true;
+          setCloneText(items[0]);
           setMaskWidth(items[0]);
           startInterval();
         } else {
@@ -63,8 +78,6 @@ import { getIntersectionObserver } from "../util/observer";
       },
       onUnintersect: stopInterval,
     });
-
-    // TODO: Add a resize observer to update the mask width
   }
 
   if (rotator) {

@@ -30,6 +30,7 @@
   /* Fonts */
   --font-sans: "Atkinson Hyperlegible", sans-serif;
   --font-serif: "Kiwi Maru", serif;
+  --font-hand: "Nothing You Could Do", cursive;
 
   /* Typescale */
   --text-p: 1.0625rem;
@@ -53,6 +54,9 @@
   --text-h4: clamp(var(--text-h4-min), 2.153vw, var(--text-h4-max));
   --text-h5: clamp(var(--text-h5-min), 1.736vw, var(--text-h5-max));
   --text-h6: clamp(var(--text-h6-min), 1.388vw, var(--text-h6-max));
+
+  /* A bit rough, but it works */
+  --text-h1-lg-hand: clamp(3rem, 5vw, 5rem);
 
   /* Breakpoints */
   --breakpoint-xsm: 30rem;
@@ -113,10 +117,10 @@
       items-center
       justify-between
       w-full
-      max-sm:text-cream
+      max-sm:text-coffee
       max-sm:fixed
       max-sm:inset-0
-      max-sm:bg-slate
+      max-sm:bg-white
       max-sm:z-10
       max-sm:flex-col
       max-sm:justify-center
@@ -171,7 +175,14 @@
 
   /* Text Rotator */
   .rotator {
-    @apply flex items-center justify-center w-full text-h1-lg text-white;
+    @apply flex
+      items-center
+      justify-center
+      w-full
+      text-h1-lg
+      text-white
+      font-hand
+      font-normal;
   }
 
   .rotator-mask {
@@ -185,13 +196,13 @@
       whitespace-nowrap
       transition-[width]
       duration-300
+      border-b-2
+      border-white
       motion-reduce:transition-none;
   }
 
   .rotator-item {
-    @apply font-bold
-      italic
-      text-left
+    @apply text-left
       px-4
       xsm:pl-6
       transition-all
@@ -213,6 +224,17 @@
 
   .rotator-item-staged-exit {
     @apply -translate-y-[20px] opacity-0;
+  }
+
+  .rotator-item-clone {
+    @apply text-left
+      px-4
+      xsm:pl-6
+      absolute
+      top-0
+      left-0
+      invisible
+      pointer-events-none;
   }
 
   /* Used for embeds: src/_includes/templates/embed.liquid */
@@ -291,7 +313,7 @@
 
 @layer utilities {
   .shadow-text {
-    text-shadow: 0 4px 8px var(--color-coffee);
+    text-shadow: 0 0px 10px #555;
   }
 
   .section-padding {

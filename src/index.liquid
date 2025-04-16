@@ -22,7 +22,7 @@ script: "home"
   </a>
 </section>
 
-<section class="rainbow-gradient border-t border-b border-silver flex items-center justify-center select-none h-[80vw] xsm:h-[60vw] md:h-[34.72vw]">
+<section class="relative rainbow-gradient border-t border-b border-silver flex items-center justify-center select-none h-[80vw] xsm:h-[60vw] md:h-[34.72vw]">
   <div
     id="rotator"
     class="rotator"
@@ -44,6 +44,10 @@ script: "home"
         </span>
       {% endfor %}
     </div>
+    <span
+      id="rotator-clone"
+      class="rotator-item-clone"
+      aria-hidden="true"></span>
   </div>
 </section>
 

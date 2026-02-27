@@ -26,7 +26,9 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <header class="px-4 py-4 sm:px-8 flex justify-between items-center bg-white/90 sticky top-0 z-10 border-b border-silver">
+    <header class="flex flex-col justify-between items-center bg-white/90 sticky top-0 z-10 border-b border-silver">
+      {% render "templates/banner"
+        , site: site %}
       {% render "templates/navi"
         , site: site
         , page: page
